@@ -34,6 +34,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author davidchang
  */
+@WebServlet(name = "RoomEventJsonServlet", urlPatterns = "{/RoomEventJsonServlet}")
 public class RoomEventJsonServlet extends HttpServlet {
 
     /**

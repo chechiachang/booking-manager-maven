@@ -33,6 +33,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author davidchang
  */
+@WebServlet(name = "NewRoomDivAction", urlPatterns = {"/NewRoomDivAction"})
 public class NewRoomDivAction extends HttpServlet {
 
     /**
