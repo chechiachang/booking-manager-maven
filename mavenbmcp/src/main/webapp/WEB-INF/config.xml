@@ -6,7 +6,7 @@
 <entry key="FAVOURITE_FRUIT">Mango</entry>
 <entry key="THE_COW_SAYS">The cow says %s</entry>
 
-<entry key="DB_URL">jdbc:mysql://localhost:3306/bluevilla</entry>
+<entry key="DB_URL">jdbc:mysql://localhost:3306/bluevilla?characterEncoding=UTF-8</entry>
 <entry key="DRIVER_MANAGER">com.mysql.jdbc.Driver</entry>
 <entry key="USER">bluevilla</entry>
 <entry key="PASS">b850ff55e2924c934a5206140975d94f</entry>

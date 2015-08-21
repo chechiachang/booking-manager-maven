@@ -2,10 +2,12 @@ com/ccc/mavenbmcp/servlet/UserServlet.class
 com/ccc/mavenbmcp/action/GetAllObjectClassesAction.class
 com/ccc/mavenbmcp/mail/WelcomeEmail.class
 com/ccc/mavenbmcp/action/LoginServlet.class
+com/ccc/nhrservlet/NhrDataJsonServlet.class
 com/ccc/util/XmlMapping.class
 com/ccc/mavenbmcp/encrypt/MD5.class
 com/ccc/mavenbmcp/entity/User.class
 com/ccc/mavenbmcp/biz/ObjectClassBiz.class
+com/ccc/nhrservlet/NhrData.class
 com/ccc/mavenbmcp/entity/Device.class
 com/ccc/mavenbmcp/action/NewRoomDivAction.class
 com/ccc/smartfloorplan/entity/Room.class
@@ -30,6 +32,7 @@ com/ccc/mavenbmcp/action/CheckRoomEventTimeAction.class
 com/ccc/smartfloorplan/entity/JdbcConn.class
 com/ccc/mavenbmcp/mail/HelloWorld.class
 com/ccc/mavenbmcp/entity/ObjectClass.class
+com/ccc/bm/wulian2front/UpdateDeviceAction.class
 com/ccc/mavenbmcp/action/GetRoomInfoJsonAction.class
 com/ccc/bm/wulian2front/DevicesJsonServlet.class
 com/ccc/mavenbmcp/entity/JdbcConn.class
@@ -42,3 +45,4 @@ com/ccc/smartfloorplan/entity/Floor.class
 com/ccc/mavenbmcp/service/ObjectClassService.class
 com/ccc/mavenbmcp/action/GetAllRoomAction.class
 com/ccc/mavenbmcp/mail/EmailUtil.class
+com/ccc/mavenbmcp/entity/JdbcConnNhr.class

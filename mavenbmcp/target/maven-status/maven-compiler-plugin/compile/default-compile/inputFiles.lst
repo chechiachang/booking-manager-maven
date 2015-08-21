@@ -7,9 +7,11 @@
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/entity/Validate.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/smartfloorplan/action/GetAllRoomAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/util/MD5.java
+/home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/bm/wulian2front/UpdateDeviceAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/GetAllObjectClassesAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/smartfloorplan/entity/Room.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/mail/HelloWorld.java
+/home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/nhrservlet/NhrData.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/GetRoomFootpathAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/entity/ObjectClass.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/entity/User.java
@@ -25,11 +27,13 @@
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/biz/ObjectClassBiz.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/DeleteUserAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/bm/wulian2front/DevicesJsonServlet.java
+/home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/entity/JdbcConnNhr.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/service/ObjectClassService.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/mail/Message.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/smartfloorplan/action/GetAllFloorAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/entity/JdbcConn.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/servlet/EventJsonServlet.java
+/home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/nhrservlet/NhrDataJsonServlet.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/encrypt/MD5.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/util/XmlMapping.java
 /home/davidchang/NetBeansProjects/mavenbmcp/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/GetAllRoomAction.java
