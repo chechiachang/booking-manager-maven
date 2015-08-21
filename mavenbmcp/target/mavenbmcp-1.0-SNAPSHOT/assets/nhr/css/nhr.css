@@ -8,9 +8,7 @@ and open the template in the editor.
     Author     : davidchang
 */
 
-
-
-.ico-mode{
+.nhr{
     padding:3px;
     color:orange;
     background: rgba(0,0,0,0.7);
@@ -18,58 +16,59 @@ and open the template in the editor.
     border-radius: 20px;
     float:left;
 }
-.ico-mode.on{
+
+.nhr.on{
     color:greenyellow;
     border:greenyellow solid 2px;
     background: rgba(0,0,0,0.7);
     border-radius: 20px;
 }
-.ico-mode.off{
+.nhr.off{
     color:crimson;
     border:crimson solid 2px;
     background: rgba(0,0,0,0.7);
     border-radius: 20px;
 }
-.ico-mode.up{
+.nhr.up{
     color:greenyellow;
     border:greenyellow solid 2px;
 }
-.ico-mode.hold{
+.nhr.hold{
     color:greenyellow;
     border:greenyellow solid 2px;
 }
-.ico-mode.down{
+.nhr.down{
     color:greenyellow;
     border:greenyellow solid 2px;
 }
-.ico-mode.sensor{
+.nhr.sensor{
     color:aqua;
     border:aqua solid 2px;
     background: rgba(0,0,0,0.7);
     border-radius: 20px;
 }
-.ico-mode>div{
+.nhr>div{
     float:left;
 }
-.ico-mode .info{
+.nhr .info{
     display:block;
 }
-.ico-mode .devID{
+.nhr .devID{
     display:none;
 }
-.ico-mode {
+.nhr {
     text-align: center;
 }
-.ico-mode ul{
+.nhr ul{
     list-style: none;
     padding: 1px;
     margin: 0;
     font-size: 12px;
 }
-.ico-mode.small{
+.nhr.small{
     transform: "scale(0.5, 0.5)";
 }
-.ico-mode.small ul{
+.nhr.small ul{
     display:none;
 }
 

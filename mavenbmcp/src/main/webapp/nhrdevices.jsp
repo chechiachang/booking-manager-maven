@@ -38,7 +38,7 @@
 
         <link rel="stylesheet" href="css/devices.css">
         <script src="assets/nhr/js/nhrdata.js"></script>
-        <link rel="stylesheet" href="assets/nhr/css/devices.css">
+        <link rel="stylesheet" href="assets/nhr/css/nhr.css">
         <script>
 
         </script>

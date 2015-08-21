@@ -3,26 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var wulian_devices_type = {
-    "d02": {"name": "Motion_Sensor", "on": "fa fa-fw fa-bell", "off": "fa fa-fw fa-bell-slash"},
-    "d03": {"name": "Contact_Sensor", "on": "fa fa-fw fa-lock", "off": "fa fa-fw fa-unlock"},
-    "d12": {"name": "Dimming_Light", "on": "fa fa-fw fa-sort-amount-asc fa-rotate-270", "off": "fa fa-fw fa-sort-amount-asc fa-rotate-270"},
-    "d15": {"name": "Calculate Dock", "on": "fa fa-fw fa-plug", "off": "fa fa-fw fa-plug"},
-    "d17": {"name": "Temp-Hum", "on": "fa fa-fw fa-gear fa-spin"},
-    "d18": {"name": "CO2", "on": "fa fa-fw fa-cloud"},
-    "d19": {"name": "Light_Sensor", "on": "fa fa-fw fa-spinner fa-spin"},
-    "d22": {"name": "IR_Controller", "on": "fa fa-fw fa-wifi", "off": "fa fa-fw fa-wifi"},
-    "d42": {"name": "Air_Quality", "on": "fa fa-fw fa-cloud", "off": "fa fa-fw fa-cloud"},
-    "d50": {"name": "Wall_Outlet_1", "on": "fa fa-fw fa-bolt", "off": "fa fa-fw fa-bolt"},
-    "d54": {"name": "OnOff_Switch_2", "on": "fa fa-fw fa-link"},
-    "d61": {"name": "OnOff_Light_1", "on": "glyphicon glyphicon-minus fa-rotate-90", "off": "glyphicon glyphicon-minus fa-rotate-90"},
-    "d62": {"name": "OnOff_Light_2", "on": "glyphicon glyphicon-pause", "off": "glyphicon glyphicon-pause"},
-    "d63": {"name": "OnOff_Light_3", "on": "glyphicon glyphicon-menu-hamburger fa-rotate-90", "off": "glyphicon glyphicon-menu-hamburger fa-rotate-90"},
-    "d65": {"name": "Curtain_Controller", "hold": "fa fa-fw fa-unsorted", "down": "fa fa-fw fa-sort-desc", "up": "fa fa-fw fa-sort-asc"},
-    "d70": {"name": "DoorLock_4", "lock": "fa fa-fw fa-key", "unlock": "fa fa-fw fa-exclamation"}
-};
-var nhr_devices_type={
-    
+
+var nhr_devices_type = {
+    "da6d2": {"name": "temp_humid", "on": "fa fa-fw fa-spin fa-gear", "off": "fa fa-fw fa-gear fa-spin"},
+    "d2117": {"name": "motion_sensor", "on": "fa fa-fw fa-bell", "off": "fa fa-fw fa-bell-slash"},
+    "da246": {"name": "contact_sensor", "on": "fa fa-fw fa-lock", "off": "fa fa-fw fa-unlock"}
 };
 
 
@@ -38,28 +23,63 @@ function getNhrData() {
     $('.nhr').remove();
 
     $.get("NhrDataJsonServlet", {cmd: "getdata"}, function (jsonResponse) {
-        var data = $.parseJSON(jsonResponse);
-        $.each(data, function (k, v) {
-            var icon = "";
+        var datas = $.parseJSON(jsonResponse);
+        $.each(datas, function (k, v) {
+            var icon = "", data = "", iconClass;
             //switch by devices type
             switch (v.shortMac) {
-                case "a6d2":    //0405 Zigbee Cluster Library relative humid measurement Cluster ID
+                case "a6d2":    //temp humid
+                    switch (v.clusterId) {
+                        case "0402"://temp
+                            data = v.data + "℃";
+                            icon = nhr_devices_type.da6d2.on;
+                            iconClass = "sensor";
+                            break;
+                        case "0405"://humid
+                            data = v.data + "%";
+                            icon = nhr_devices_type.da6d2.on;
+                            iconClass = "sensor";
+                            break;
+                        default:
+                            break;
+                    }
                     break;
-                case "2117":    //0405 Zigbee Cluster Library temperature measurement Cluster ID
+                case "2117":    //motion sensor
+                    data = v.data;
+                    if (data == "on") {//on / off = alert / safe
+                        data = "偵測";
+                        iconClass = "alert";
+                    } else {
+                        data = "安全";
+                        iconClass = "on";
+                    }
+                    icon = nhr_devices_type.d2117.on;
                     break;
-                case "a246":    //0405 Zigbee Cluster Library temperature measurement Cluster ID 
+                case "a246":    //contact sensor
+                    data = v.data;
+                    if (data == "on") {//on / off = alert / safe
+                        data = "偵測";
+                        iconClass = "alert";
+                    } else {
+                        data = "安全";
+                        iconClass = "on";
+                    }
+                    icon = nhr_devices_type.da246.on;
+                    break;
+                default:
                     break;
             }
-            
+
             if (v.macClusterId.length > 0) {
-                $('div#'+v.macClusterId).remove();
+                $('div#' + v.macClusterId).remove();
             }
-            var html = '<div id=' + v.macClusterId +
+            var html = '<div id="' + v.macClusterId +
                     '" shortmac="' + v.shortMac +
                     '" clusterid= "' + v.clusterId +
-                    '" data="' + v.data + '">"' +
-                    '"<div><i class="fa fa-fw ' + icon + '"></i></div>';
-            html += '</br>' + v.data;
+                    '" class= "nhr ' + iconClass +
+                    '" data="' + data + '">' +
+                    ' <div><i class="fa fa-fw ' + icon + '"></i></div>';
+            html += '</br>' + data;
             html += '</div>';
             //append to div
             var position = v.position.split(",");
