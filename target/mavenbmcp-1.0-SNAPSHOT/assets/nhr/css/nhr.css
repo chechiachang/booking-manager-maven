@@ -1,0 +1,87 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 30, 2015, 9:15:09 AM
+    Author     : davidchang
+*/
+
+.nhr{
+    padding:3px;
+    color:orange;
+    background: rgba(0,0,0,0.7);
+    border:orange solid 2px;
+    border-radius: 20px;
+    float:left;
+}
+
+.nhr.on{
+    color:greenyellow;
+    border:greenyellow solid 2px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 20px;
+}
+.nhr.off{
+    color:crimson;
+    border:crimson solid 2px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 20px;
+}
+.nhr.up{
+    color:greenyellow;
+    border:greenyellow solid 2px;
+}
+.nhr.hold{
+    color:greenyellow;
+    border:greenyellow solid 2px;
+}
+.nhr.down{
+    color:greenyellow;
+    border:greenyellow solid 2px;
+}
+.nhr.sensor{
+    color:aqua;
+    border:aqua solid 2px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 20px;
+}
+.nhr>div{
+    float:left;
+}
+.nhr .info{
+    display:block;
+}
+.nhr .devID{
+    display:none;
+}
+.nhr {
+    text-align: center;
+}
+.nhr ul{
+    list-style: none;
+    padding: 1px;
+    margin: 0;
+    font-size: 12px;
+}
+.nhr.small{
+    transform: "scale(0.5, 0.5)";
+}
+.nhr.small ul{
+    display:none;
+}
+
+.title a{
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+}
+#device_table{
+    margin-top:50px;
+    font-size: 20px;
+    
+}
+li a{
+    font-size: 16px;
+}

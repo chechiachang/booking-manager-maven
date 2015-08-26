@@ -1,0 +1,68 @@
+[33mcommit 9486510c7780445748f074f704e4f79502562131[m
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Fri Aug 21 16:55:32 2015 +0800
+
+    Add nhr devices
+
+[33mcommit 696b84d5616dab2b92f5d38a2b99a294a00cdab0[m
+Merge: de3b4a4 45f4dfc
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Fri Aug 21 15:58:42 2015 +0800
+
+    Merged
+
+[33mcommit de3b4a4709c253768daff3be673b568a1f9febd6[m
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Fri Aug 21 15:56:05 2015 +0800
+
+    Add nhr devices and wulian devices jsp and related js
+
+[33mcommit a6c51a76187a8613ca66feb555e0514e84069705[m
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Tue Aug 18 11:05:50 2015 +0800
+
+    Add anntation to all Servlet in order to minimize configuration in web.xml
+
+[33mcommit 45f4dfcb6f11f663f0ad4973c9be9d3249baf639[m
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Thu Aug 13 09:34:54 2015 +0800
+
+    Add README.md
+
+[33mcommit 1bf2adea8c4add31b6daeafcb565bf6cae2cb12d[m
+Merge: 3cfae45 26067f8
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Thu Aug 13 09:28:02 2015 +0800
+
+    Merge branch 'master' of https://github.com/chechiachang/booking-manager-maven
+
+[33mcommit 3cfae45acd5a4cc37485e32dde27d0181f4748ee[m
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Thu Aug 13 09:25:17 2015 +0800
+
+    Initial commit
+
+[33mcommit 26067f8e97d163082bd2465c73c20741e13a3bce[m
+Author: Che Chia Chang <chechiachang999@gmail.com>
+Date:   Thu Aug 13 09:22:42 2015 +0800
+
+    Initial commit
+
+[33mcommit cfc1807990a2165806ac08405893be19eab0581d[m
+Merge: 37257d3 b94d580
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Thu Aug 13 09:16:53 2015 +0800
+
+    Merge branch 'master' of https://github.com/chechiachang/booking-manager-maven
+
+[33mcommit b94d580d8bfadf2a6f269003473cf27fc35f9e02[m
+Author: Che Chia Chang <chechiachang999@gmail.com>
+Date:   Thu Aug 13 09:13:39 2015 +0800
+
+    Initial commit
+
+[33mcommit 37257d36e1408fdb101832109ddd59ddf0a28b52[m
+Author: David Chang <chechiachang999@gmail.com>
+Date:   Thu Aug 13 09:09:31 2015 +0800
+
+    Initial commit

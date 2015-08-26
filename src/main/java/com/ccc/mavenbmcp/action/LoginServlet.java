@@ -9,6 +9,7 @@ import com.ccc.mavenbmcp.entity.Validate;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author davidchang
  */
+@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
     /**

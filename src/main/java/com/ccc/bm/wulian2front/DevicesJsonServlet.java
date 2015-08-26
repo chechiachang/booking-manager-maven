@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +33,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author davidchang
  */
+@WebServlet("/DevicesJsonServlet")
 public class DevicesJsonServlet extends HttpServlet {
 
     /**
@@ -47,7 +49,6 @@ public class DevicesJsonServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        String cmd = request.getParameter("cmd");
 
         try (PrintWriter out = response.getWriter()) {
             Connection conn = null;
@@ -59,7 +60,7 @@ public class DevicesJsonServlet extends HttpServlet {
                 conn = DriverManager.getConnection(configXml.LookupKey("DB_URL"), configXml.LookupKey("USER"), configXml.LookupKey("PASS"));
 
                 pstmt = conn.prepareStatement(
-                        "SELECT t1.`id`, t1.`devID`, `devInfo`, `epType`, t2.`room_id`, t2.`location` FROM `devices` as t1 "
+                        "SELECT t1.`id`, t1.`devID`, `devInfo`, `devDataText`, `epType`, t2.`room_id`, t2.`location` FROM `devices` as t1 "
                         + "left join `devices_location` as t2 on t1.`devID` = t2.`devID`  ");
                 rs = pstmt.executeQuery();
                 List<Device> devices = new ArrayList<>();
@@ -68,6 +69,7 @@ public class DevicesJsonServlet extends HttpServlet {
                     device.setId(rs.getInt("id"));
                     device.setDevID(rs.getString("devID"));
                     device.setDevInfo(rs.getString("devInfo"));
+                    device.setDevDataText(rs.getString("devDataText"));
                     device.setEpType(rs.getString("epType"));
                     device.setRoom_id(rs.getInt("room_id"));
                     device.setLocation(rs.getString("location") + "");
