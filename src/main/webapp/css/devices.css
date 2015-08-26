@@ -18,6 +18,7 @@ and open the template in the editor.
     border-radius: 20px;
     float:left;
     text-align: center;
+    cursor: pointer;
 }
 .ico-mode.on{
     color:greenyellow;

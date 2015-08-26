@@ -15,6 +15,7 @@ and open the template in the editor.
     border:orange solid 2px;
     border-radius: 20px;
     float:left;
+    cursor: pointer;
 }
 
 .nhr.on{
@@ -80,7 +81,7 @@ and open the template in the editor.
 #device_table{
     margin-top:50px;
     font-size: 20px;
-    
+
 }
 li a{
     font-size: 16px;

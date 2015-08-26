@@ -12,8 +12,8 @@ package com.ccc.mavenbmcp.entity;
 public class JdbcConnNhr {
     static final String DB_URL = "jdbc:mysql://localhost:3306/nhr?useUnicode=yes&characterEncoding=UTF-8";
     static final String DRIVER_MANAGER = "com.mysql.jdbc.Driver";
-    static final String USER = "amazedarcherfish";
-    static final String PASS = "c19bc3d70a7398794623212c497dd9bf";
+    static final String USER = "nhr";
+    static final String PASS = "25ac7375c1fd64eca8dd8cf309071c0d";
 
     public JdbcConnNhr() {
     }
