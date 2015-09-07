@@ -11,23 +11,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sinage</title>
-        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="assets/jquery/jquery-1.11.2.min.js"></script>
         <!-- bootstrap -->
-        <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="assets/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap.min.css">
         <!-- Optional theme -->
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
         <!-- JQuery UI -->
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
-        <script src="js/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="assets/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+        <script src="assets/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
         <!-- full calendar-->
-        <script src='js/moment.js'></script>
-        <script src='js/fullcalendar2.js'></script>
-        <link rel='stylesheet' href='css/fullcalendar2.css'>
-        <script src='js/zh-tw.js'></script>
+        <script src='assets/fullcalendar/js/moment.js'></script>
+        <script src='assets/fullcalendar/js/fullcalendar2.js'></script>
+        <link rel='stylesheet' href='assets/fullcalendar/css/fullcalendar2.css'>
+        <script src='assets/fullcalendar/js/zh-tw.js'></script>
         <!-- swiper -->
-        <script src="js/swiper.min.js"></script>
-        <link rel="stylesheet" href="css/swiper.min.css">
+        <script src="assets/Swiper-3.0.8/dist/js/swiper.min.js"></script>
+        <link rel="stylesheet" href="assets/Swiper-3.0.8/dist/css/swiper.min.css">
         <!-- Custom -->
         <link rel="stylesheet" href="css/index.css">
 

@@ -39,7 +39,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="floorplan.jsp">Floorplan</a><span class="sr-only">(current)</span></li>
                         <li><a href="table.jsp">Table<span class="sr-only">(current)</span></a></li>
-                        <li><a href="users.jsp">Users<span class="sr-only">(current)</span></a></li>
+                        <li><a href="bulletin.jsp">Bulletin<span class="sr-only">(current)</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Devices<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -74,6 +74,7 @@
                                         <li><a href="rooms.jsp">空間管理</a></li>
                                         <li><a href="events.jsp">事件管理</a></li>
                                         <li><a href="devicessetup.jsp">裝置管理</a></li>
+                                        <li><a href="lockcontrol.jsp">智能門鎖</a></li>
                                         <li class="divider"></li>
                                         <li><a href="GetUserInfoAction?name=${admin}">個人設定</a></li>
                                         <li><a href="LogoutServlet">帳號登出</a></li>

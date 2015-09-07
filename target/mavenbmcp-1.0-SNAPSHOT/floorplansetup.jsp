@@ -27,7 +27,7 @@
         <script src="assets/Swiper-3.0.8/dist/js/swiper.min.js"></script>
         <!-- Custom -->
         <link rel="stylesheet" href="css/index.css">
-        <link rel='stylesheet' href='css/fullcalendar.min.css'>
+        <link rel='stylesheet' href='assets/fullcalendar/css/fullcalendar.min.css'>
         <style>
             .swiper-pagination-bullet {
                 width: 20px;

@@ -29,16 +29,16 @@
         <link rel="stylesheet" href="assets/Swiper-3.0.8/dist/css/swiper.min.css">
         <script src="assets/Swiper-3.0.8/dist/js/swiper.min.js"></script>
         <!-- full calendar-->
-        <script src='js/moment.js'></script>
-        <script src='js/fullcalendar.min.js'></script>
-        <script src='js/zh-tw.js'></script>
+        <script src='assets/fullcalendar/js/moment.js'></script>
+        <script src='assets/fullcalendar/js/fullcalendar.min.js'></script>
+        <script src='assets/fullcalendar/js/zh-tw.js'></script>
         <!-- jquery form-validator-->
-        <script src="js/form-validator/jquery.form-validator.min.js"></script>
+        <script src="assets/form-validator/jquery.form-validator.min.js"></script>
         <!-- Custom -->
         <link rel="stylesheet" href="css/index.css">
-        <script src="js/devices.js"></script>
+        <script src="assets/wulian/js/devices.js"></script>
 
-        <link rel="stylesheet" href="css/devices.css">
+        <link rel="stylesheet" href="assets/wulian/css/devices.css">
         <style>
 
             .floorplan-title{

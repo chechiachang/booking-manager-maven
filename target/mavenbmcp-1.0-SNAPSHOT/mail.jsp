@@ -12,14 +12,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Email</title>
         <!-- JQuery -->
-        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="assets/jquery/jquery-1.11.2.min.js"></script>
         <!-- bootstrap -->
-        <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css"> 
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <script src="assets/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
         <!-- DataTables -->
-        <script src="js/jquery.dataTables.min.js"></script>
-        <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+        <script src="assets/DataTables-1.10.6/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="assets/DataTables-1.10.6/css/jquery.dataTables.min.css">
         <style>
             selectEmail{
                 padding:1px;

@@ -11,28 +11,28 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="assets/jquery/jquery-1.11.2.min.js"></script>
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap.min.css">
         <!-- Optional theme -->
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
         <!-- Latest compiled and minified JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="assets/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
         <!-- JQuery UI -->
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
-        <script src="js/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="assets/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+        <script src="assets/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
         <!-- full calendar-->
-        <script src='js/moment.js'></script>
-        <script src='js/fullcalendar2.js'></script>
-        <script src='js/zh-tw.js'></script>
+        <script src='assets/fullcalendar/js/moment.js'></script>
+        <script src='assets/fullcalendar/js/fullcalendar2.js'></script>
+        <script src='assets/fullcalendar/js/zh-tw.js'></script>
         <!-- jAlert-->
-        <script src="js/jAlert-v2-min.js"></script>
-        <link rel="stylesheet" href="css/jAlert-v2-min.css">
+        <script src="assets/jAlert-master/jAlert-v2-min.js"></script>
+        <link rel="stylesheet" href="assets/jAlert-master/jAlert-v2-min.css">
         <!-- DataTables -->
-        <script src="js/jquery.dataTables.min.js"></script>
-        <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+        <script src="assets/DataTables-1.10.6/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="assets/DataTables-1.10.6/css/jquery.dataTables.min.css">
         <!-- jquery form-validator -->
-        <script src="js/form-validator/jquery.form-validator.min.js"></script>
+        <script src="assets/form-validator/jquery.form-validator.min.js"></script>
         <!-- Custom -->
 
         <title>Kingsbeam 管理後台</title>

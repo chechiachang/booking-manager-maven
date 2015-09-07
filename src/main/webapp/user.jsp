@@ -12,13 +12,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>個人設定</title>
         <!-- JQuery -->
-        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="assets/jquery/jquery-1.11.2.min.js"></script>
         <!-- bootstrap -->
-        <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap.theme.min.css">
+        <script src="assets/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
         <!-- jquery form-validator -->
-        <script src="js/form-validator/jquery.form-validator.min.js"></script>
+        <script src="assets/form-validator/jquery.form-validator.min.js"></script>
         <!-- Custom -->
         <link rel="stylesheet" href="css/index.css">
         <style>

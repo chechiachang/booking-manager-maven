@@ -40,7 +40,7 @@
         <script src="assets/jAlert-master/jAlert-v2-min.js"></script>
         <link  href="assets/jAlert-master/jAlert-v2-min.css" rel="stylesheet">
         <!-- jquery form-validator-->
-        <script src="js/form-validator/jquery.form-validator.min.js"></script>
+        <script src="assets/form-validator/jquery.form-validator.min.js"></script>
         
         <!-- Custom -->
         <link rel="stylesheet" href="css/index.css">

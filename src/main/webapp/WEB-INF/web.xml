@@ -27,10 +27,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-name>GetAllObjectClassesAction</servlet-name>
         <servlet-class>com.ccc.mavenbmcp.action.GetAllObjectClassesAction</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>GetAllRoomAction</servlet-name>
-        <servlet-class>com.ccc.mavenbmcp.action.GetAllRoomAction</servlet-class>
-    </servlet>
+
     <servlet>
         <servlet-name>GetAllFloorAction</servlet-name>
         <servlet-class>com.ccc.smartfloorplan.action.GetAllFloorAction</servlet-class>
@@ -55,10 +52,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-name>GetAllUserAction</servlet-name>
         <servlet-class>com.ccc.mavenbmcp.action.GetAllUserAction</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>AddUserAction</servlet-name>
-        <servlet-class>com.ccc.mavenbmcp.action.AddUserAction</servlet-class>
-    </servlet>
+
     <servlet>
         <servlet-name>EditUserAction</servlet-name>
         <servlet-class>com.ccc.mavenbmcp.action.EditUserAction</servlet-class>
@@ -120,10 +114,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-name>GetAllObjectClassesAction</servlet-name>
         <url-pattern>/GetAllObjectClassesAction</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GetAllRoomAction</servlet-name>
-        <url-pattern>/GetAllRoomAction</url-pattern>
-    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>GetAllFloorAction</servlet-name>
         <url-pattern>/GetAllFloorAction</url-pattern>
@@ -152,10 +143,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-name>GetAllUserAction</servlet-name>
         <url-pattern>/GetAllUserAction</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddUserAction</servlet-name>
-        <url-pattern>/AddUserAction</url-pattern>
-    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>EditUserAction</servlet-name>
         <url-pattern>/EditUserAction</url-pattern>

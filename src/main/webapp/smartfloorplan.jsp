@@ -29,10 +29,11 @@
         <script src="assets/Swiper-3.0.8/dist/js/swiper.min.js"></script>
         <!-- Custom -->
         <link rel="stylesheet" href="css/index.css">
-        <link rel='stylesheet' href='css/fullcalendar.min.css'>
+        <link rel='stylesheet' href='assets/fullcalendar/css/fullcalendar.min.css'>
         <script src="js/smartfloorplan.js"></script>
-        <script src="js/devices.js"></script>
-        <link rel="stylesheet" href="css/devices.css">
+        
+        <script src="assets/wulian/js/devices.js"></script>
+        <link rel="stylesheet" href="assets/wulian/css/devices.css">
         <style>
             .swiper-pagination-bullet {
                 width: 20px;
