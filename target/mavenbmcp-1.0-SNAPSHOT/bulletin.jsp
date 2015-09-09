@@ -251,6 +251,8 @@ Author     : davidchang
 
                 var s = date.getSeconds();
                 $('input#seconds').val(s);
+                
+
 
                 setInterval(function () {
                     s += 1;
