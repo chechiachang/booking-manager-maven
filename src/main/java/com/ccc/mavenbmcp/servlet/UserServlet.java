@@ -6,7 +6,7 @@
 package com.ccc.mavenbmcp.servlet;
 
 import com.google.gson.Gson;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -45,8 +45,8 @@ public class UserServlet extends HttpServlet {
         ResultSet rs;
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            Class.forName(JdbcConn.getDRIVER_MANAGER());
-            conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+            Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+            conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
             String cmd = request.getParameter("cmd");
             switch (cmd) {
                 case "isAdmin": {

@@ -6,7 +6,7 @@
 package com.ccc.mavenbmcp.action;
 
 import com.google.gson.Gson;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.ccc.mavenbmcp.entity.Room;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,8 +48,8 @@ public class GetRoomInfoJsonAction extends HttpServlet {
             PreparedStatement ps = null;
             ResultSet rs;
             try {
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 ps = conn.prepareStatement("SELECT `id`, `name`, `class_id`, `text`, `uri`,`color`, `fontSize`, `top`, `left`, `height`, `width`, `footpath` FROM `rooms` WHERE `roomId` = ? ");
                 ps.setString(1, roomId);
                 rs = ps.executeQuery();

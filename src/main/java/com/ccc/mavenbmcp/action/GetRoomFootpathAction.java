@@ -5,7 +5,7 @@
  */
 package com.ccc.mavenbmcp.action;
 
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -47,8 +47,8 @@ public class GetRoomFootpathAction extends HttpServlet {
             PreparedStatement ps = null;
             ResultSet rs;
             try {
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 ps = conn.prepareStatement("SELECT `footpath` FROM `rooms` WHERE `roomId` = ? ");
                 ps.setString(1, roomId);
                 rs = ps.executeQuery();

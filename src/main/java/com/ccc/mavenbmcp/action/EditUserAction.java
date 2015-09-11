@@ -6,7 +6,7 @@
 package com.ccc.mavenbmcp.action;
 
 import com.ccc.mavenbmcp.encrypt.MD5;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -53,8 +53,8 @@ public class EditUserAction extends HttpServlet {
             Connection conn = null;
             PreparedStatement ps = null;
             try {
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 if (password.length() > 0) {
                     ps = conn.prepareStatement("UPDATE `users` SET `level` = ? , `disabled`= ? , `password`= ?, `showName`= ? , `email`= ? , `description`= ? WHERE `id` = ?");
                     ps.setString(1, level);

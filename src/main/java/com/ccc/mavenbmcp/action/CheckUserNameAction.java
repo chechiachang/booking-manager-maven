@@ -7,7 +7,7 @@ package com.ccc.mavenbmcp.action;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -56,8 +56,8 @@ public class CheckUserNameAction extends HttpServlet {
 
             try {
 
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 ps = conn.prepareStatement("SELECT count(id) FROM `users` WHERE `name` = ?");
                 ps.setString(1, name);
 

@@ -20,7 +20,6 @@ com/ccc/smartfloorplan/action/GetAllFloorAction.class
 com/ccc/mavenbmcp/mail/HelloWorld.class
 com/ccc/bm/wulian2front/UpdateDeviceAction.class
 com/ccc/bm/wulian2front/DevicesJsonServlet.class
-com/ccc/mavenbmcp/entity/JdbcConn.class
 com/ccc/mavenbmcp/action/EditUserPasswordAction.class
 com/ccc/mavenbmcp/entity/Vehicle.class
 com/ccc/mavenbmcp/servlet/EventJsonServlet.class
@@ -40,6 +39,7 @@ com/ccc/mavenbmcp/entity/Validate.class
 com/ccc/mavenbmcp/entity/Room.class
 com/ccc/mavenbmcp/servlet/DbConnection.class
 com/ccc/util/MD5.class
+com/ccc/mavenbmcp/entity/JdbcConnBmcp.class
 com/ccc/mavenbmcp/entity/Event.class
 com/ccc/bulletin/entity/DeviceData.class
 com/ccc/mavenbmcp/action/GetRoomFootpathAction.class

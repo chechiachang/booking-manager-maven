@@ -5,7 +5,7 @@
  */
 package com.ccc.bm.wulian2front;
 
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.ccc.util.XmlMapping;
 import java.io.File;
 import java.io.IOException;

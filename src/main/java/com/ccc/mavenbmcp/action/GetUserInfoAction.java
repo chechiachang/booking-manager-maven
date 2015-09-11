@@ -5,7 +5,7 @@
  */
 package com.ccc.mavenbmcp.action;
 
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.ccc.mavenbmcp.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,8 +47,8 @@ public class GetUserInfoAction extends HttpServlet {
             String name = request.getParameter("name");
 
             try {
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 ps = conn.prepareStatement("SELECT `id`, `level`, `disabled`, `email`, `description` FROM `users` WHERE `name` =  ? ");
                 ps.setString(1, name);
                 rs = ps.executeQuery();

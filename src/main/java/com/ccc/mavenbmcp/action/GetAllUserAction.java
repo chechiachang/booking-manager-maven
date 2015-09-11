@@ -6,7 +6,7 @@
 package com.ccc.mavenbmcp.action;
 
 import com.ccc.mavenbmcp.entity.Event;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.ccc.mavenbmcp.entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -51,8 +51,8 @@ public class GetAllUserAction extends HttpServlet {
             ResultSet rs;
             try {
 
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 ps = conn.prepareStatement("SELECT `id`, `level`, `disabled`, `name`, `showName`, `password`, `email`, `description` FROM `users` ORDER BY `level` DESC , `id` ASC");
                 rs = ps.executeQuery();
                 List<User> listUsers = new ArrayList<>();

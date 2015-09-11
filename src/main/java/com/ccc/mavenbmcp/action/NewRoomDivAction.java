@@ -7,7 +7,7 @@ package com.ccc.mavenbmcp.action;
 
 import com.google.gson.Gson;
 import com.ccc.mavenbmcp.entity.Event;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.ccc.mavenbmcp.entity.Vehicle;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -57,8 +57,8 @@ public class NewRoomDivAction extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             try {
 
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
 
                 ps = conn.prepareStatement("INSERT INTO `rooms` (`roomId`, `name`, `class_id`, `text`, `uri`, `color`, `left`, `top`, `width`, `height`) VALUES(?,?,?,?,?,?,?,?,?,?)");
                 ps.setString(1, request.getParameter("roomId"));

@@ -5,6 +5,7 @@
  */
 package com.ccc.ntcbmcp.servlet;
 
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.google.gson.Gson;
 import com.ccc.ntcbmcp.entity.NtcEvent;
 import com.ccc.mavenbmcp.entity.Room;
@@ -32,7 +33,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author davidchang
  */
-//@WebServlet(name = "NtcEventJsonServlet", urlPatterns = "{NtcEventJsonServlet}")
+@WebServlet(name = "NtcEventJsonServlet", urlPatterns = {"/NtcEventJsonServlet"})
 public class NtcEventJsonServlet extends HttpServlet {
 
     /**
@@ -57,9 +58,8 @@ public class NtcEventJsonServlet extends HttpServlet {
         ResultSet rs;
 
         try {
-            XmlMapping xmlConfig = new XmlMapping(new File(getServletConfig().getServletContext().getRealPath("/WEB-INF/config.xml")));
-            Class.forName(xmlConfig.LookupKey("DRIVER_MANAGER"));
-            conn = DriverManager.getConnection(xmlConfig.LookupKey("DB_URL"), xmlConfig.LookupKey("USER"), xmlConfig.LookupKey("PASS"));
+            Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+            conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
 
             String cmd = request.getParameter("cmd");
             String roomId = request.getParameter("roomId");
@@ -105,12 +105,13 @@ public class NtcEventJsonServlet extends HttpServlet {
                 }
                 case "time": {
                     String date = request.getParameter("date"); //2015-00-00
-                    pstmt = conn.prepareStatement("SELECT t1.`id`, t1.`roomId`, t2.`name`, `unit`, `start`, `end`, `showtime`, `apply`, `pricing`, `phone1`, `phone2`, "
-                            + "`title`, `servant`, `description`, `central`, `cleaner`, `createdBy`, `modifiedBy`, `memo` "
+                    pstmt = conn.prepareStatement("SELECT t1.`id`, t1.`roomId`, t2.`name`, `start`, `end`, "
+                            + "`title`, `description`, `createdBy`, `modifiedBy` "
                             + "FROM `room_events` AS t1 Left JOIN `rooms` AS t2 "
                             + "ON t1.`roomId` = t2.`roomId` "
                             + "WHERE `deleted` != '1' AND `start` > ? AND `start` < ? "
                             + "ORDER BY `id`");
+                    //end> `start` > date 
                     pstmt.setString(1, date);
                     String end = date.substring(0, 8) + String.valueOf(Integer.valueOf(date.substring(8, 10)) + 1);
                     pstmt.setString(2, end);
@@ -122,22 +123,12 @@ public class NtcEventJsonServlet extends HttpServlet {
                         ntcevent.setRoomName(rs.getString("name"));
                         ntcevent.setRoomId(Integer.valueOf(rs.getString("roomId")));
                         ntcevent.setResources(rs.getString("roomId"));
-                        ntcevent.setUnit(rs.getString("unit"));
                         ntcevent.setStart(rs.getString("start").replace(" ", "T"));
                         ntcevent.setEnd(rs.getString("end").replace(" ", "T"));
-                        ntcevent.setShowtime(rs.getString("showtime"));
-                        ntcevent.setApply(rs.getString("apply"));
-                        ntcevent.setPricing(rs.getString("pricing"));
-                        ntcevent.setPhone1(rs.getString("phone1"));
-                        ntcevent.setPhone2(rs.getString("phone2"));
                         ntcevent.setTitle(rs.getString("title"));
-                        ntcevent.setServant(rs.getString("servant"));
                         ntcevent.setDescription(rs.getString("description"));
-                        ntcevent.setCentral(rs.getString("central"));
-                        ntcevent.setCleaner(rs.getString("cleaner"));
                         ntcevent.setCreatedBy(rs.getString("createdBy"));
                         ntcevent.setModifiedBy(rs.getString("modifiedBy"));
-                        ntcevent.setMemo(rs.getString("memo"));
 
                         list.add(ntcevent);
                     }

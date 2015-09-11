@@ -6,7 +6,7 @@
 package com.ccc.mavenbmcp.action;
 
 import com.ccc.mavenbmcp.entity.Event;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.ccc.mavenbmcp.entity.Room;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -54,8 +54,8 @@ public class GetAllRoomEvent extends HttpServlet {
             ResultSet rs;
             try {
 
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 ps = conn.prepareStatement("SELECT `id`,`roomId`, `deleted`, `title`, `description`, `start`, `end`, `allDay`, `resources`, `createdBy`, `modifiedBy`, `memo` FROM `room_events` WHERE `deleted` != '1' ORDER BY `roomId`,`start`");
                 rs = ps.executeQuery();
                 List<Event> listEvents = new ArrayList<>();

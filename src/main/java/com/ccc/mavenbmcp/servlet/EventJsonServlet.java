@@ -7,7 +7,7 @@ package com.ccc.mavenbmcp.servlet;
 
 import com.google.gson.Gson;
 import com.ccc.mavenbmcp.entity.Event;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.ccc.mavenbmcp.entity.Room;
 import com.ccc.mavenbmcp.entity.Vehicle;
 import java.io.IOException;
@@ -59,8 +59,8 @@ public class EventJsonServlet extends HttpServlet {
         ResultSet rs;
 
         try {
-            Class.forName(JdbcConn.getDRIVER_MANAGER());
-            conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+            Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+            conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
             String cmd = request.getParameter("cmd");
             switch (cmd) {
                 case "get": {

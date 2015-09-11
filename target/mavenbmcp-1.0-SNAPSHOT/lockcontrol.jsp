@@ -49,19 +49,19 @@
                         <table class="table">
                             <!--[Future] Use jsp auto print rooms -->
                             <tr>
-                                <td></td>
-                                <td>307</br>階梯簡報室</td>
-                                <td>401</br>中型會議室</td>
-                                <td>403</br>中型會議室</td>
-                                <td>411</br>貴賓室</td>
-                                <td>B1</br>商品展售區</td>
-                                <td></br>多功能集會堂</td>
-                                <td>507</br>大型階梯會議室</td>
-                                <td>511</br>簡報階梯室</td>
-                                <td>603</br>大禮堂</td>
-                                <td>一樓</br>東側大廳</td>
-                                <td>一樓</br>西側大廳</td>
-                                <td></br>市民廣場</td>
+                                <td>    </td>
+                                <td>201</br>室</td>
+                                <td>202</br>會議室</td>
+                                <td>203</br>中型會議室</td>
+                                <td>401</br>大會議室</td>
+                                <td>402</br>貴賓室</td>
+                                <td>403</br>多功能集會堂</td>
+                                <td>404</br>大型階梯室</td>
+                                <td>405</br>面談室</td>
+                                <td>406</br>面談室</td>
+                                <td>407</br>面談室</td>
+                                <td>408</br>面談室</td>
+                                <td>409</br>預備會議室</td>
                             </tr>
                             <tr>
                                 <td>自動</br>模式</td>
@@ -125,48 +125,48 @@
                             </tr>
                             <tr>
                                 <td>排程</td>
-                                <td><p id="title1"></p></td>
-                                <td><p id="title2"></p></td>
-                                <td><p id="title3"></p></td>
-                                <td><p id="title4"></p></td>
-                                <td><p id="title5"></p></td>
-                                <td><p id="title6"></p></td>
-                                <td><p id="title7"></p></td>
-                                <td><p id="title8"></p></td>
-                                <td><p id="title9"></p></td>
-                                <td><p id="title10"></p></td>
-                                <td><p id="title11"></p></td>
-                                <td><p id="title12"></p></td>
+                                <td><p id="title201"></p></td>
+                                <td><p id="title202"></p></td>
+                                <td><p id="title203"></p></td>
+                                <td><p id="title401"></p></td>
+                                <td><p id="title402"></p></td>
+                                <td><p id="title403"></p></td>
+                                <td><p id="title404"></p></td>
+                                <td><p id="title405"></p></td>
+                                <td><p id="title406"></p></td>
+                                <td><p id="title407"></p></td>
+                                <td><p id="title408"></p></td>
+                                <td><p id="title409"></p></td>
                             </tr>
                             <tr>
                                 <td>開始</td>
-                                <td><p id="start1"></p></td>
-                                <td><p id="start2"></p></td>
-                                <td><p id="start3"></p></td>
-                                <td><p id="start4"></p></td>
-                                <td><p id="start5"></p></td>
-                                <td><p id="start6"></p></td>
-                                <td><p id="start7"></p></td>
-                                <td><p id="start8"></p></td>
-                                <td><p id="start9"></p></td>
-                                <td><p id="start10"></p></td>
-                                <td><p id="start11"></p></td>
-                                <td><p id="start12"></p></td>
+                                <td><p id="start201"></p></td>
+                                <td><p id="start202"></p></td>
+                                <td><p id="start203"></p></td>
+                                <td><p id="start401"></p></td>
+                                <td><p id="start402"></p></td>
+                                <td><p id="start403"></p></td>
+                                <td><p id="start404"></p></td>
+                                <td><p id="start405"></p></td>
+                                <td><p id="start406"></p></td>
+                                <td><p id="start407"></p></td>
+                                <td><p id="start408"></p></td>
+                                <td><p id="start409"></p></td>
                             </tr>
                             <tr>
                                 <td>結束</td>
-                                <td><p id="end1"></p></td>
-                                <td><p id="end2"></p></td>
-                                <td><p id="end3"></p></td>
-                                <td><p id="end4"></p></td>
-                                <td><p id="end5"></p></td>
-                                <td><p id="end6"></p></td>
-                                <td><p id="end7"></p></td>
-                                <td><p id="end8"></p></td>
-                                <td><p id="end9"></p></td>
-                                <td><p id="end10"></p></td>
-                                <td><p id="end11"></p></td>
-                                <td><p id="end12"></p></td>
+                                <td><p id="end201"></p></td>
+                                <td><p id="end202"></p></td>
+                                <td><p id="end203"></p></td>
+                                <td><p id="end401"></p></td>
+                                <td><p id="end402"></p></td>
+                                <td><p id="end403"></p></td>
+                                <td><p id="end404"></p></td>
+                                <td><p id="end405"></p></td>
+                                <td><p id="end406"></p></td>
+                                <td><p id="end407"></p></td>
+                                <td><p id="end408"></p></td>
+                                <td><p id="end409"></p></td>
                             </tr>
                         </table>
                         <div class="center">
@@ -181,6 +181,7 @@
             //auto mode, default=true
             var auto = [true, true, true, true, true, true, true, true, true, true, true, true];
             var state = [false, false, false, false, false, false, false, false, false, false, false, false];
+            
             $(function () {
                 InitializeSwitch();
                 //get date
@@ -291,14 +292,14 @@
                     for (var i = jsonResponse.length - 1; i > -1; i--) {
                         //past event
                         //format "start":"2015-05-28T09:00:00.0"
-                        //#alert(" jsonResponse[i].start: " + jsonResponse[i].start + " jsonResponse[i].start.substr(0, 19): " + jsonResponse[i].start.substr(0, 19));
+                        //alert(" jsonResponse[i].start: " + jsonResponse[i].start + " jsonResponse[i].start.substr(0, 19): " + jsonResponse[i].start.substr(0, 19));
                         var dateStart = new Date(jsonResponse[i].start.substr(0, 19));
                         //#alert(" dateStart.getTime(): " + dateStart.getTime() + " date.getTime() " + date.getTime());
                         //
                         //future event only
                         if (dateStart.getTime() > date.getTime()) {
                             var roomId = jsonResponse[i].roomId;
-                            //#alert(" jsonResponse[i].roomId " + jsonResponse[i].roomId + " jsonResponse[i].start " + jsonResponse[i].start);
+                            //alert(" jsonResponse[i].roomId " + jsonResponse[i].roomId + " jsonResponse[i].start " + jsonResponse[i].start);
                             $('p#title' + roomId).html(jsonResponse[i].title);
                             $('p#start' + roomId).html(jsonResponse[i].start.substr(11, 8));
                             $('p#end' + roomId).html(jsonResponse[i].end.substr(11, 8));

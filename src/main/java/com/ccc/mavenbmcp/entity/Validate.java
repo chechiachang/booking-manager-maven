@@ -26,8 +26,8 @@ public class Validate {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            Class.forName(JdbcConn.getDRIVER_MANAGER());
-            conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+            Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+            conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
             ps = conn.prepareStatement("SELECT `level` FROM `users` WHERE `name` = ? AND `password` = ?" );
             ps.setString(1, name);
             ps.setString(2, getMD5(password));

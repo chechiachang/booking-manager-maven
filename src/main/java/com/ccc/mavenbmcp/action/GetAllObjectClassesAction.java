@@ -5,7 +5,7 @@
  */
 package com.ccc.mavenbmcp.action;
 
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import com.ccc.mavenbmcp.entity.ObjectClass;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -54,8 +54,8 @@ public class GetAllObjectClassesAction extends HttpServlet {
             PreparedStatement ps = null;
             ResultSet rs;
             try {
-                  Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                  Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 
                 stmt = conn.createStatement();
 

@@ -5,7 +5,7 @@
  */
 package com.ccc.mavenbmcp.action;
 
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
@@ -46,8 +46,8 @@ public class UpdateRoomAction extends HttpServlet {
             String roomId = request.getParameter("roomId");
 
             try {
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 ps = conn.prepareStatement("UPDATE `rooms` SET "
                         + " `left` = ? ,"
                         + " `top` = ? ,"

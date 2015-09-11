@@ -13,12 +13,12 @@
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/GetRoomInfoJsonAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/mail/HelloWorld.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/DeleteUserAction.java
-/home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/entity/JdbcConn.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/GetAllUserAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/smartfloorplan/action/GetAllRoomAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/bulletin/entity/DeviceData.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/servlet/EventJsonServlet.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/EditUserAction.java
+/home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/entity/JdbcConnBmcp.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/servlet/UserServlet.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/smartfloorplan/entity/Floor.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/GetAllRoomAction.java

@@ -6,7 +6,7 @@
 package com.ccc.mavenbmcp.action;
 
 import com.google.gson.JsonObject;
-import com.ccc.mavenbmcp.entity.JdbcConn;
+import com.ccc.mavenbmcp.entity.JdbcConnBmcp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
@@ -62,8 +62,8 @@ public class CheckRoomEventTimeAction extends HttpServlet {
             ResultSet rs;
 
             try {
-                Class.forName(JdbcConn.getDRIVER_MANAGER());
-                conn = DriverManager.getConnection(JdbcConn.getDB_URL(), JdbcConn.getUSER(), JdbcConn.getPASS());
+                Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
+                conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
                 /*
                  SELECT *
                  FROM `room_event`
