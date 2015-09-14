@@ -1,0 +1,84 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 9, 2015, 11:23:07 AM
+    Author     : davidchang
+*/
+
+h1{
+    text-align:center;
+}
+body{
+    background: #090930;
+    color: white;
+}
+div.message-box{
+    text-align:center;
+    font-size:2em;
+}
+.form-control{
+    text-align:center;
+    color:black;
+    background-color: black;
+    height: 80px;
+}
+div.input-group-addon{
+    font-size:2em;
+    border:none !important;
+    background-color:rgba(0,0,0,0) !important;
+    color:white !important;
+}
+input{
+    background-color:rgba(0,0,0,0) !important;
+    border:none !important;
+}
+input.yellow{
+    //font-weight: bold;
+    color:yellow !important;
+    font-size: 3em;
+}
+input.measure{
+    font-weight: normal;
+    color:red !important;
+    font-size: 3em;
+}
+input.comfort{
+    font-weight: normal;
+    //color:springgreen !important;
+    font-size: 3em;
+}
+div.color-badge-active{
+    opacity:1 !important;
+    font-size:3em;
+    //border-color: white;
+    //border-style: solid;
+    //border-width: 5px;
+}
+div.color-badge{
+    text-align: center;
+    alignment-adjust: middle;
+    opacity:0.5;
+    position:relative;
+    height:30px;
+    width:50px;
+    //color: rgba(255,0,0,1);
+    float:left;
+}
+.comfort-green{
+    color: rgba(0,255,0,1);
+}
+.comfort-yellowgreen{
+    color: rgba(122,255,0,1);
+}
+.comfort-yellow{
+    color: rgba(255,255,0,1);
+}
+.comfort-redyellow{
+    color: rgba(255,122,0,1);
+}
+.comfort-red{
+    color: rgba(255,0,0,1);
+}
