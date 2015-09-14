@@ -31,25 +31,24 @@ div.input-group-addon{
     background-color:rgba(0,0,0,0) !important;
     color:white !important;
 }
-.bulletin-input{
+input{
     background-color:rgba(0,0,0,0) !important;
     border:none !important;
 }
-
-.bulletin-input.yellow{
+input.yellow{
     //font-weight: bold;
     color:yellow !important;
     font-size: 3em;
 }
-.bulletin-input.measure{
+input.measure{
     font-weight: normal;
     color:red !important;
     font-size: 3em;
 }
-.bulletin-input.comfort{
+input.comfort{
     font-weight: normal;
     //color:springgreen !important;
-    font-size: 2em;
+    font-size: 3em;
 }
 div.color-badge-active{
     opacity:1 !important;
@@ -85,23 +84,24 @@ div.color-badge{
     background-color:green;
 }
 #THBadgeContainer div:first-child{
-    background-color:red;
+    background-color:#c5cae9;
 }
 #THBadgeContainer div:nth-child(2){
-    background-color:yellow;
+    background-color: #2196f3;
 }
 #THBadgeContainer div:nth-child(3){
-    background-color:green;
+    background-color:#1a237e;
 }
 #THBadgeContainer div:nth-child(4){
-    background-color:yellow;
+    background-color: #2196f3;
 }
 #THBadgeContainer div:nth-child(5){
-    background-color:red;
+    background-color:#c5cae9;
 }
 div.color-badge:nth-child(6){
     clear:none;
 }
+
 
 .comfort-green{
     color: rgba(0,255,0,1);
