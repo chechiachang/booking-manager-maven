@@ -69,10 +69,6 @@ div.color-badge{
     float:left;
 }
 
-#CO2BadgeContainer, #THBadgeContainer{
-    background-image: url('images/bulletin/co2.png');
-}
-
 #CO2BadgeContainer div:first-child{
     background-color:red;
 }

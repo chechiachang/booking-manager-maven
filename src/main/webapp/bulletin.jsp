@@ -34,7 +34,7 @@
 
         <style>
             body{
-                background-image: url('images/bulletinbg1.jpg');
+                background-image: url('images/bulletin/bulletinbg1.jpg');
                 background-size:cover;
             }
 
@@ -76,7 +76,7 @@
                         <div class="input-group-addon">ppm</div>
                     </div>
                     <div class="row">
-                        <img src="images/CO2.png" alt="" style="color:white;height:100px;position:absolute;">
+                        <img src="images/bulletin/CO2.png" alt="" style="color:white;height:100px;position:absolute;">
                         <div id="CO2BadgeContainer" class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-3">
                             <div class="color-badge"></div>
                             <div class="color-badge"></div>
@@ -94,7 +94,7 @@
                         <div class="input-group-addon">％</div>
                     </div>
                     <div class="row">
-                        <img src="images/humid.png" alt="" style="color:white;height:100px;position:absolute;">
+                        <img src="images/bulletin/humid.png" alt="" style="color:white;height:100px;position:absolute;">
                         <div id="THBadgeContainer" class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-3">
                             <div class="color-badge"></div>
                             <div class="color-badge"></div>
