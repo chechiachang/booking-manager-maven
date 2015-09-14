@@ -31,24 +31,25 @@ div.input-group-addon{
     background-color:rgba(0,0,0,0) !important;
     color:white !important;
 }
-input{
+.bulletin-input{
     background-color:rgba(0,0,0,0) !important;
     border:none !important;
 }
-input.yellow{
+
+.bulletin-input.yellow{
     //font-weight: bold;
     color:yellow !important;
     font-size: 3em;
 }
-input.measure{
+.bulletin-input.measure{
     font-weight: normal;
     color:red !important;
     font-size: 3em;
 }
-input.comfort{
+.bulletin-input.comfort{
     font-weight: normal;
     //color:springgreen !important;
-    font-size: 3em;
+    font-size: 2em;
 }
 div.color-badge-active{
     opacity:1 !important;
@@ -60,13 +61,52 @@ div.color-badge-active{
 div.color-badge{
     text-align: center;
     alignment-adjust: middle;
-    opacity:0.5;
+    opacity:0.2;
     position:relative;
     height:30px;
     width:50px;
     //color: rgba(255,0,0,1);
     float:left;
 }
+
+#CO2BadgeContainer, #THBadgeContainer{
+    background-image: url('images/bulletin/co2.png');
+}
+
+#CO2BadgeContainer div:first-child{
+    background-color:red;
+}
+#CO2BadgeContainer div:nth-child(2){
+    background-color:orange;
+}
+#CO2BadgeContainer div:nth-child(3){
+    background-color:yellow;
+}
+#CO2BadgeContainer div:nth-child(4){
+    background-color:yellowgreen;
+}
+#CO2BadgeContainer div:nth-child(5){
+    background-color:green;
+}
+#THBadgeContainer div:first-child{
+    background-color:red;
+}
+#THBadgeContainer div:nth-child(2){
+    background-color:yellow;
+}
+#THBadgeContainer div:nth-child(3){
+    background-color:green;
+}
+#THBadgeContainer div:nth-child(4){
+    background-color:yellow;
+}
+#THBadgeContainer div:nth-child(5){
+    background-color:red;
+}
+div.color-badge:nth-child(6){
+    clear:none;
+}
+
 .comfort-green{
     color: rgba(0,255,0,1);
 }

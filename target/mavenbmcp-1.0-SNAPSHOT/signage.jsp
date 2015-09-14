@@ -182,7 +182,7 @@
                     $('div#floorplan').fadeOut("slow");
                     $('div#roomInfo').fadeOut("slow");
                     //reset hightlight
-                    $('div#' + highlightRoomId).css({"border-color": "red"});
+                    $('div#' + highlightRoomId).css({"border-color": "black"});
                     //clear footprint
                     $('div#swiper-slide' + highlightClassId).find('div.footprint').remove();
                     highlightRoomId = 0;
@@ -194,8 +194,6 @@
                 direction: 'horizontal',
                 //control
                 loop: false,
-                allowSwipeToPrev: false,
-                allowSwipeToNext: false,
                 noSwiping: false
             });
             function InitialFullCalendar(classId) {

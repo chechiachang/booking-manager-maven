@@ -34,25 +34,26 @@
 
         <style>
             body{
-                background-image: url('images/bulletin/bulletinbg1.jpg');
+                background-image: url('images/bulletinbg1.jpg');
                 background-size:cover;
             }
+
         </style>
         <script>
             $(function () {
-                
+
                 $("div#carousel").owlCarousel({
                     pagination: false,
                     slideSpeed: 10,
                     singleItem: true,
                     autoPlay: 5000,
-                    transitionStyle: "fade"
+                    rewindSpeed: 1
+                            //transitionStyle: "fade"
                 });
             });
         </script>
     </head>
     <body>
-        <jsp:include page="navbar.jsp"></jsp:include>
         <c:import url="GetRoomInfoAction"></c:import>
             <div class="container">
                 <div class="row">
@@ -61,38 +62,71 @@
                         <input class="bulletin-input form-control yellow" id="date">
                         <input class="bulletin-input form-control yellow" id="weekDay">
                         <input class="bulletin-input form-control yellow" id="time">
-                        <div id="carousel" class="owl-carousel">
-                            <div class="message-box">
-                                <p>系統連線中</p>
-                            </div>
-                            <div class="message-box">
-                                <p>裝置正常</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
                         <div class="input-group has-warning">
-                            <div class="input-group-addon">室內溫度</div>
+                            <div class="input-group-addon"><i class="fa fa-cog fa-spin"></i> 室內溫度</div>
                             <input class="bulletin-input form-control measure" id="temp" value="${bulletin.temp}">
                         <div class="input-group-addon">℃</div>
                     </div>
-                        
+
                     <div class="input-group has-success">
-                        <div class="input-group-addon">二氧化碳</div>
+                        <div class="input-group-addon"><i class="fa fa-refresh fa-spin"></i> 二氧化碳</div>
                         <input class="bulletin-input form-control measure" id="CO2" value="${bulletin.CO2}">
                         <div class="input-group-addon">ppm</div>
                     </div>
-                    <div id='pbarCO2' style="height: 20px;"></div>
-                    <input class="form-control comfort" id="CO2Comfort" placeholder="計算中">
-
+                    <div class="row">
+                        <img src="images/CO2.png" alt="" style="color:white;height:100px;position:absolute;">
+                        <div id="CO2BadgeContainer" class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-3">
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                        </div>
+                    </div>
+                    <input class="bulletin-input form-control comfort" id="CO2Comfort" placeholder="計算中">
                     <div class="input-group has-error">
-                        <div class="input-group-addon">相對濕度</div>
+                        <div class="input-group-addon"><i class="fa fa-spinner fa-spin"></i> 相對濕度</div>
                         <input class="bulletin-input form-control measure" id="humid" value="${bulletin.humid}">
                         <div class="input-group-addon">％</div>
                     </div>
-                    <div id='pbarHumid' style="height: 20px;"></div>
+                    <div class="row">
+                        <img src="images/humid.png" alt="" style="color:white;height:100px;position:absolute;">
+                        <div id="THBadgeContainer" class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-3">
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                            <div class="color-badge"></div>
+                        </div>
+                    </div>
                     <input class="bulletin-input form-control comfort" id="humidComfort" placeholder="計算中">
 
+                </div>
+            </div><!--row-->
+            <div class="row">
+                <div id="carousel" class="owl-carousel">
+                    <div class="message-box">
+                        <p>系統連線中</p>
+                        <p>裝置正常</p>
+                    </div>
+                    <div class="message-box">
+                        <p>新聞一</p>
+                        <p>Yahoo奇摩新聞</p>
+                    </div>
+                    <div class="message-box">
+                        <p>新聞二</p>
+                        <p>Google新聞</p>
+                    </div>
+                    <div class="message-box">
+                        <p>新聞三</p>
+                        <p>BBC NEWS</p>
+                    </div>
                 </div>
             </div><!--row-->
         </div><!--container-->
