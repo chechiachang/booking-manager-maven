@@ -38,6 +38,9 @@
                 text-align: center;
                 vertical-align: middle;
             }
+            table#table > tr :first-child{
+                column-width: 10px;
+            }
         </style>
     </head>
     <body>
@@ -46,22 +49,22 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 center">
-                        <table class="table">
+                        <table id="table" class="table">
                             <!--[Future] Use jsp auto print rooms -->
                             <tr>
                                 <td>    </td>
-                                <td>201</br>室</td>
-                                <td>202</br>會議室</td>
-                                <td>203</br>中型會議室</td>
-                                <td>401</br>大會議室</td>
-                                <td>402</br>貴賓室</td>
-                                <td>403</br>多功能集會堂</td>
-                                <td>404</br>大型階梯室</td>
-                                <td>405</br>面談室</td>
-                                <td>406</br>面談室</td>
-                                <td>407</br>面談室</td>
-                                <td>408</br>面談室</td>
-                                <td>409</br>預備會議室</td>
+                                <td>201<br>室</td>
+                                <td>202<br>會議室</td>
+                                <td>203<br>中型會議室</td>
+                                <td>401<br>大會議室</td>
+                                <td>402<br>貴賓室</td>
+                                <td>403<br>多功能集會堂</td>
+                                <td>404<br>大型階梯室</td>
+                                <td>405<br>面談室</td>
+                                <td>406<br>面談室</td>
+                                <td>407<br>面談室</td>
+                                <td>408<br>面談室</td>
+                                <td>409<br>預備會議室</td>
                             </tr>
                             <tr>
                                 <td>自動</br>模式</td>
@@ -94,34 +97,19 @@
                                 <td><input type="checkbox" id="switch12"></td>
                             </tr>
                             <tr>
-                                <td>開啟</br>鎖定</td>
-                                <td><input type="checkbox" id="open1"></td>
-                                <td><input type="checkbox" id="open2"></td>
-                                <td><input type="checkbox" id="open3"></td>
-                                <td><input type="checkbox" id="open4"></td>
-                                <td><input type="checkbox" id="open5"></td>
-                                <td><input type="checkbox" id="open6"></td>
-                                <td><input type="checkbox" id="open7"></td>
-                                <td><input type="checkbox" id="open8"></td>
-                                <td><input type="checkbox" id="open9"></td>
-                                <td><input type="checkbox" id="open10"></td>
-                                <td><input type="checkbox" id="open11"></td>
-                                <td><input type="checkbox" id="open12"></td>
-                            </tr>
-                            <tr>
-                                <td>上鎖</br>鎖定</td>
-                                <td><input type="checkbox" id="close1"></td>
-                                <td><input type="checkbox" id="close2"></td>
-                                <td><input type="checkbox" id="close3"></td>
-                                <td><input type="checkbox" id="close4"></td>
-                                <td><input type="checkbox" id="close5"></td>
-                                <td><input type="checkbox" id="close6"></td>
-                                <td><input type="checkbox" id="close7"></td>
-                                <td><input type="checkbox" id="close8"></td>
-                                <td><input type="checkbox" id="close9"></td>
-                                <td><input type="checkbox" id="close10"></td>
-                                <td><input type="checkbox" id="close11"></td>
-                                <td><input type="checkbox" id="close12"></td>
+                                <td>監視</br>畫面</td>
+                                <td><button id="ipcam1" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam2" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam3" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam4" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam5" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam6" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam7" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam8" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam9" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam10" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam11" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam12" class="btn btn-default">顯示</button></td>
                             </tr>
                             <tr>
                                 <td>排程</td>
@@ -181,7 +169,7 @@
             //auto mode, default=true
             var auto = [true, true, true, true, true, true, true, true, true, true, true, true];
             var state = [false, false, false, false, false, false, false, false, false, false, false, false];
-            
+
             $(function () {
                 InitializeSwitch();
                 //get date
@@ -235,9 +223,9 @@
             function InitializeSwitch() {
                 //initial bootstrap-switch
                 $('input[id*="auto"]').bootstrapSwitch({
-                    size: 'small',
-                    onText: '自動',
-                    offText: '手動',
+                    size: 'normal',
+                    onText: '開',
+                    offText: '關',
                     onColor: 'primary'
                 });
                 $('input[id*="switch"]').bootstrapSwitch({
@@ -246,18 +234,6 @@
                     offText: '開',
                     onColor: 'danger',
                     offColor: 'success'
-                });
-                $('input[id*="open"]').bootstrapSwitch({
-                    size: 'normal',
-                    onText: '開',
-                    offText: '無',
-                    onColor: 'warning'
-                });
-                $('input[id*="close"]').bootstrapSwitch({
-                    size: 'normal',
-                    onText: '鎖',
-                    offText: '無',
-                    onColor: 'info'
                 });
                 //Synchronize switch
                 for (var i = 0; i < 12; i++) {
@@ -347,10 +323,16 @@
                         + strLockDevID + "&strDevType=62&strCtrlData=10";
                 switch (cmd) {
                     case 0:
-                        $.post(urlUnlock);
+                        //$.post(urlUnlock);
+                        $.ajax({
+                            url: urlUnlock
+                        });
                         break;
                     case 1:
-                        $.post(urlLock);
+                        //$.post(urlLock);
+                        $.ajax({
+                            url: urlLock
+                        });
                         break;
                 }
             }
