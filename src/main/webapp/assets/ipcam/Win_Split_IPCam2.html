@@ -1,0 +1,299 @@
+<html>  
+  <head>    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <title></title>
+    <style>
+    body, body.div{
+    	text-align: center;
+    	overflow:hidden;
+    }
+    </style>
+    <script type='text/javascript' src='js/jquery/jquery-1.4.3.min.js'></script>
+    
+
+    <script type="text/javascript">
+
+      var currSelectedVideoNum = 0;
+      var videoChangeFlag = "N";
+      var appletCurrTime = 0;
+      var vehicleSrvData = "";
+      var os_type = "";
+      var subWin;  
+      var changeClip = "";     //是否有切換分割, Y:需要切換分割
+  
+      var clipStartNum = "1";  //Start Number
+      var Width = "400";       //Applet Width
+      var Height = "300";      //Applet Height
+      var currClipNum = "1";   //目前分割數  1:單分割, 4:4分割, 9:9分割
+      
+      
+      var change_devicetype = "";
+      var change_devicename = "";
+      var change_address = "";
+      var change_streamport = "";
+      var change_account = "";
+      var change_password = "";
+      var change_channel = "";
+      var change_vehicledeviceid = "";
+      var change_allChannel = "";
+      var change_channelCount = "";
+      
+    
+
+  $(document).ready(function() {
+	  
+	  os_type = check_os();
+	  setTimeout('init(currClipNum, Width, Height, clipStartNum);', 100);
+	  //setInterval("checkAppletIsLive()",1000); 
+	  
+  });
+  
+  
+  
+  
+  function check_os() {
+	  
+	    var os_type;
+		var windows = (navigator.userAgent.indexOf("Windows",0) != -1)?1:0;
+		var mac = (navigator.userAgent.indexOf("mac",0) != -1)?1:0;
+		if(!mac){
+			mac = (navigator.userAgent.indexOf("Mac",0) != -1)?1:0;
+		}
+		var linux = (navigator.userAgent.indexOf("Linux",0) != -1)?1:0;
+		var unix = (navigator.userAgent.indexOf("X11",0) != -1)?1:0;
+	 
+		if (windows) os_type = "Windows";
+		else if (mac) os_type = "Mac";
+		else if (linux) os_type = "Lunix";
+		else if (unix) os_type = "Unix";
+	 
+		return os_type;
+  }
+
+  
+  
+  //供Applet呼叫使用 , 表示Applet畫面上按下 X 的是哪個畫面編號 , num = 0 ..... n
+  function clearVideo(num){
+	 
+  }
+  
+  
+  //供Applet呼叫使用 , flag == 1 表示 Applet正在處理中, flag == 0 表示處理完畢 
+  function lockSelect(flag){
+	  
+  }
+  
+  
+  //供Applet呼叫使用, 表示哪個畫面要放大為單視窗畫面
+  function singleWindow(position){
+	  
+  }
+  
+  
+  
+  //供Applet呼叫使用, Applet每隔約50ms會呼叫此Func, 檢查是否有需要切換分割畫面(1,4,9分割畫面互相切換)
+  function chekcClipChange(){
+	  
+	  var changeClipTmp = changeClip;      //是否有切換分割, Y:需要切換分割
+	  var clipNum = Number(currClipNum);   //目前分割數  1:單分割, 4:4分割, 9:9分割
+	  var startNum = Number(clipStartNum); //起始號碼(用於每個影像畫面左上方的編號)
+	  var rtnValue = "";
+	  
+	  if(changeClipTmp=='Y'){
+		 changeClip = "";
+		 var changeVideo = new Object();
+		 changeVideo.clip = clipNum;
+		 changeVideo.startNum = startNum;
+		 changeVideo.deviceList = new Array(clipNum);
+	     	     
+	     for(var i=0;i<clipNum;i++){
+			 changeVideo.deviceList[i] = new Object();
+			 changeVideo.deviceList[i].devicename = '';
+       	     changeVideo.deviceList[i].ipaddress = '';
+       	     changeVideo.deviceList[i].port = '';
+       	     changeVideo.deviceList[i].account = '';
+       	     changeVideo.deviceList[i].password = '';
+       	     changeVideo.deviceList[i].channel = '';
+       	     changeVideo.deviceList[i].devicetype = '2'; //填入 2(表示要處理3G車機的影像) 
+       	     changeVideo.deviceList[i].vehicle = ''; //3G車機代號
+	     }
+	     rtnValue = JSON.stringify(changeVideo);
+	  }
+	  return rtnValue;
+  }
+  
+  
+  
+  //供Applet呼叫使用, 傳送時間
+  function receiveAppletCurrTime(currTime){
+	  
+	  appletCurrTime = Number(currTime);
+	  
+	  var currDate = new Date();
+	  var js_currTime = Number(currDate.getTime());
+	  	
+	  if(appletCurrTime > 0){
+	     if((js_currTime - appletCurrTime) > 20000){ //超過20秒 Applet 沒有更新時間, 判定為異常, 須重新啟動畫面
+	  	    location.reload();
+	        currDate = new Date();
+	        appletCurrTime = Number(currDate.getTime());
+	     }
+	  }
+  }
+  
+    
+  
+  
+  //供Applet呼叫使用, Applet畫面上要更換為哪個影像
+  function videoChangeCheck(){
+	  
+	  var rtnValue = "";
+	  
+	  if(videoChangeFlag=="Y"){
+		 var changeVideo = new Object();
+		 if(change_devicename=="undefined" || change_address=="undefined" || change_streamport=="undefined"){
+			alert('Select device data error, please retry !!');
+		 } else {
+		    changeVideo.devicetype = change_devicetype;
+		    changeVideo.devicename = change_devicename;
+		    changeVideo.address = change_address;
+		    changeVideo.streamport = change_streamport;
+		    changeVideo.account = change_account;
+		    changeVideo.password = change_password;
+		    changeVideo.channel = change_channel;
+		    changeVideo.vehicledeviceid = change_vehicledeviceid;
+		    
+		    		    
+		    changeVideo.allChannel = change_allChannel; //Y:播放全頻道
+		    changeVideo.channelCount = change_channelCount; //頻道數
+		  
+		    videoChangeFlag = "N";
+		    rtnValue = JSON.stringify(changeVideo);
+		 }
+	  }	  
+	  return rtnValue;
+  }
+  
+  
+  
+  //供Applet呼叫使用, 目前Applet 畫面上選擇的是哪個畫面編號
+  function cUpdateCurrSelectedVideoNum(selectNum){
+
+  }
+  
+  
+  
+  //供Applet呼叫使用, 是否需要抓取車機清單資料
+  function VehicleSvrList(){
+	  
+	  return "";
+  }
+  
+  
+  
+  function receiveVehicleList(datas){
+	  
+	   parent.receiveVehicleSvrList(datas);
+  }
+  
+
+  
+  
+  function trans_twice_digi(num){
+  	  
+  	  var tmp = Number(num);
+  	  var rtnData = "";
+  	  
+  	  if(tmp < 10){
+  	  	 rtnData = "0" + tmp;
+  	  } else {
+  	  	 rtnData = tmp;
+  	  }
+  	  return rtnData;
+  }
+  
+  
+  
+    
+  function init(num, width, height, startNum){
+
+	     var tmph = "";
+	     var clipNum = Number(num);
+
+	     tmph = '<applet CODE="com.fuho.liveStreamApplet.AppletMain.class"';
+	     tmph = tmph + ' CODEBASE="pages/applet/"';
+		 if(os_type=="Mac"){
+			tmph = tmph + ' ARCHIVE="livestreamapplet.jar, ffmpeg_lib_min_Mac.jar, jcodec-0.1.5.jar"';
+		    tmph = tmph + ' name="livestream" ';
+		    tmph = tmph + ' width="' + width + '" height="' + height + '" MAYSCRIPT>';
+		 } else {
+		    //default Windows OS
+		    tmph = tmph + ' ARCHIVE="livestreamapplet.jar, ffmpeg_lib_min_win.jar, jcodec-0.1.5.jar"';
+		    tmph = tmph + ' name="livestream" ';
+		    tmph = tmph + ' width="' + width + '" height="' + height + '" MAYSCRIPT>';
+		 }
+	     
+	     tmph = tmph + ' <param name="java_arguments" value="-Xmx128m"></param>';
+	     tmph = tmph + ' <param name="video_width" value="' + Number(width-6) + '"></param>';    //Applet Width
+	     tmph = tmph + ' <param name="video_height" value="' + Number(height-6) + '"></param>';  //Applet Height
+	     tmph = tmph + ' <param name="videoLoadingImageName" value="images/video-spin-loader.gif"></param>';  //Loading image
+	     tmph = tmph + ' <param name="videoNoChannelImageName" value="images/no_channel.png"></param>';       //No channel
+	     tmph = tmph + ' <param name="clip" value="' + clipNum + '"></param>'; //1:單分割, 4:4分割, 9:9分割
+	     tmph = tmph + ' <param name="showtitle" value="Y"></param>';  //display title flag
+	     
+	     
+	     if(clipNum == 1){
+	    	 tmph = tmph + ' <param name="startNum" value="' + (Number(startNum)) + '"></param>';	 
+	     }
+	     tmph = tmph + ' <param name="fps" value="25"></param>';
+	     tmph = tmph + ' <param name="permissions" value="all-permissions"></param>';
+	     	     	     
+	     tmph = tmph + ' <param name="cache_option" value="no"></param>';
+	     tmph = tmph + ' <param name="codebase_lookup" value="true"></param>';
+	     
+	     tmph = tmph + ' <param name="image" value="images/loading.gif">';
+	     tmph = tmph + ' <param name="boxborder" value="false">';
+	     tmph = tmph + ' <param name="centerimage" value="true">';
+	     
+	     //下面會依照分割數分別填入要顯示影像的各項資料
+	     /*
+	     for(var i=0;i<clipNum;i++){
+		     tmph = tmph + '<param name="devicename' + trans_twice_digi(i+1) + '" value="IPCam"></param>';  //video Name
+		     tmph = tmph + '<param name="ipaddress' + trans_twice_digi(i+1) + '" value="fhmobipc.ddns.net"></param>';   //IP Address
+		     tmph = tmph + '<param name="port' + trans_twice_digi(i+1) + '" value="2302"></param>';        //Stream Port
+		     tmph = tmph + '<param name="account' + trans_twice_digi(i+1) + '" value="admin"></param>';     //Account
+		     tmph = tmph + '<param name="password' + trans_twice_digi(i+1) + '" value="admin"></param>';    //Password
+		     tmph = tmph + '<param name="channel' + trans_twice_digi(i+1) + '" value="' + i + '"></param>';     //Channel ID
+		     tmph = tmph + '<param name="devicetype' + trans_twice_digi(i+1) + '" value="3"></param>';  //IPCam
+		     tmph = tmph + '<param name="vehicle' + trans_twice_digi(i+1) + '" value=""></param>';
+	     }
+	     */
+
+	     		     tmph = tmph + '<param name="devicename' + trans_twice_digi(1) + '" value="IPCam"></param>';  //video Name
+		     tmph = tmph + '<param name="ipaddress' + trans_twice_digi(1) + '" value="192.168.16.17"></param>';   //IP Address
+		     tmph = tmph + '<param name="port' + trans_twice_digi(1) + '" value="8592"></param>';        //Stream Port
+		     tmph = tmph + '<param name="account' + trans_twice_digi(1) + '" value="admin"></param>';     //Account
+		     tmph = tmph + '<param name="password' + trans_twice_digi(1) + '" value="admin"></param>';    //Password
+		     tmph = tmph + '<param name="channel' + trans_twice_digi(1) + '" value="' + 0 + '"></param>';     //Channel ID
+		     tmph = tmph + '<param name="devicetype' + trans_twice_digi(1) + '" value="3"></param>';  //IPCam
+		     tmph = tmph + '<param name="vehicle' + trans_twice_digi(1) + '" value=""></param>';
+
+	     tmph = tmph + '</applet>';
+      
+	  var video = document.getElementById("StreamVideo");
+	  video.innerHTML = tmph;
+  }
+  
+  
+
+</script>
+
+</head>  
+ <body>
+   	  <div id="StreamVideo" name="StreamVideo">
+   	  </div>
+ </body>
+</html>

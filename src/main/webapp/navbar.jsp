@@ -31,25 +31,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#" target="_blank">Space Manage System</a>
+                    <a class="navbar-brand" href="#" target="_blank">空間管理系統</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="floorplan.jsp">Floorplan</a><span class="sr-only">(current)</span></li>
-                        <li><a href="table.jsp">Table<span class="sr-only">(current)</span></a></li>
-                        <li><a href="bulletin.jsp">Bulletin<span class="sr-only">(current)</span></a></li>
+                        <li><a href="floorplan.jsp">會議預定</a><span class="sr-only">(current)</span></li>
+                        <li><a href="table.jsp">預定清單<span class="sr-only">(current)</span></a></li>
+                        <li><a href="bulletin.jsp">資訊面板<span class="sr-only">(current)</span></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Devices<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">智能控制<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="devices.jsp">Wulian</a></li>
                                 <li><a href="nhrdevices.jsp">NHR</a></li>
                             </ul>
                         </li>
-                        <li><a href="mail.jsp">Mail<span class="sr-only">(current)</span></a></li>
-                        <li><a href="signage.jsp">Signage</a><span class="sr-only">(current)</span></li>
-                        <li><a href="dvr.jsp">IPCam</a></li>
+                        <li><a href="mail.jsp">郵件系統<span class="sr-only">(current)</span></a></li>
+                        <li><a href="signage.jsp">空間導覽</a><span class="sr-only">(current)</span></li>
                     </ul>
 
                     <c:choose>                        

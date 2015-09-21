@@ -41,6 +41,20 @@
             table#table > tr :first-child{
                 column-width: 10px;
             }
+            #ipcam_frame{
+                min-width:440px; 
+                min-height:330px; 
+                position:relative; 
+                z-index:9999;
+                border:0px
+            }
+            #ipcam_div{
+                text-align: center;
+                opacity:1; 
+                position:relative; 
+                z-index:9998;
+                min-height: 400px;
+            }
         </style>
     </head>
     <body>
@@ -98,15 +112,15 @@
                             </tr>
                             <tr>
                                 <td>監視</br>畫面</td>
-                                <td><button id="ipcam1" class="btn btn-default">顯示</button></td>
-                                <td><button id="ipcam2" class="btn btn-default">顯示</button></td>
-                                <td><button id="ipcam3" class="btn btn-default">顯示</button></td>
-                                <td><button id="ipcam4" class="btn btn-default">顯示</button></td>
-                                <td><button id="ipcam5" class="btn btn-default">顯示</button></td>
-                                <td><button id="ipcam6" class="btn btn-default">顯示</button></td>
-                                <td><button id="ipcam7" class="btn btn-default">顯示</button></td>
-                                <td><button id="ipcam8" class="btn btn-default">顯示</button></td>
-                                <td><button id="ipcam9" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam01" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam02" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam03" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam04" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam05" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam06" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam07" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam08" class="btn btn-default">顯示</button></td>
+                                <td><button id="ipcam09" class="btn btn-default">顯示</button></td>
                                 <td><button id="ipcam10" class="btn btn-default">顯示</button></td>
                                 <td><button id="ipcam11" class="btn btn-default">顯示</button></td>
                                 <td><button id="ipcam12" class="btn btn-default">顯示</button></td>
@@ -165,6 +179,28 @@
                 </div>
             </div>
         </section>
+        <section>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div id="ipcam_div" class="media">
+                                <iframe id="ipcam_frame" src="assets/ipcam/Win_Split_IPCam1.html"></iframe>
+                            </div>                                                                                                                                                                                                                                                                                                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <script>
             //auto mode, default=true
             var auto = [true, true, true, true, true, true, true, true, true, true, true, true];
@@ -172,19 +208,14 @@
 
             $(function () {
                 InitializeSwitch();
-                //get date
-                GetTime();
-                //get json
-                GetNtceventJson();
-                //check lock time
-                LockTimeChecker();
-                //main timer
-                setInterval(function () {
+                GetTime(); //get date
+                GetNtceventJson(); //get json
+                LockTimeChecker(); //check lock time
+                setInterval(function () { //main timer
                     var second = parseInt($('input#second').val()) + 1;
                     if (second < 60) {
                         $('input#second').val(second);
-                    } else {
-                        //refresh time and Json every minute, then check lock time
+                    } else { //refresh time and Json every minute, then check lock time
                         GetTime();
                         GetNtceventJson();
                         LockTimeChecker();
@@ -192,8 +223,6 @@
                 }, 1000);
                 //switch direct/auto cmd
                 $('input[id*="switch"]').on('switchChange.bootstrapSwitch', function (event, state) {
-                    //console.log(this); // DOM element
-                    //console.log(event); // jQuery event
                     console.log(state); // true | false
                     if (state) {
                         LockControl(1);
@@ -211,15 +240,14 @@
                         auto[$(this).index()] = true;
                     }
                 });
-                //if invoke onclick, disable auto mode
-                /*
-                 $.on('click','input[id*="switch"]', function () {
-                 alert($(this).index());
-                 $('input#auto' + ($(this).index() + 1)).bootstrapSwitch('state', false);
-                 });
-                 */
 
+                //Ipcam control
+                $('button[id*="ipcam"]').on('click', function () {
+                    var intNum = parseInt(this.id.toString().substr(-2));
+                    $('#myModal').modal();
+                });
             });
+
             function InitializeSwitch() {
                 //initial bootstrap-switch
                 $('input[id*="auto"]').bootstrapSwitch({
@@ -343,6 +371,8 @@
                 aDeviceID = ["CC0B3803004B1200"];
                 return aDeviceID[index];
             }
+
+
         </script>
     </body>
 </html>
