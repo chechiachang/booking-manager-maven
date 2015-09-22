@@ -49,12 +49,14 @@
                 border:0px
             }
             #ipcam_div{
+                display: none;
                 text-align: center;
                 opacity:1; 
                 position:relative; 
                 z-index:9998;
                 min-height: 400px;
             }
+
         </style>
     </head>
     <body>
@@ -179,28 +181,9 @@
                 </div>
             </div>
         </section>
-        <section>
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div id="ipcam_div" class="media">
-                                <iframe id="ipcam_frame" src="assets/ipcam/Win_Split_IPCam1.html"></iframe>
-                            </div>                                                                                                                                                                                                                                                                                                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div id="ipcam_div" class="media">
+            <iframe id="ipcam_frame" src="assets/ipcam/Win_Split_IPCam1.html"></iframe>
+        </div>                                                                                                                                                                                                                                                                                                            
         <script>
             //auto mode, default=true
             var auto = [true, true, true, true, true, true, true, true, true, true, true, true];
@@ -244,7 +227,8 @@
                 //Ipcam control
                 $('button[id*="ipcam"]').on('click', function () {
                     var intNum = parseInt(this.id.toString().substr(-2));
-                    $('#myModal').modal();
+                    $('iframe#ipcam_frame').attr("src", "assets/ipcam/Win_Split_IPCam" + intNum + ".html");
+                    $('div#ipcam_div').toggle();
                 });
             });
 
