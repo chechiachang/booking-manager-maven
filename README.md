@@ -14,7 +14,7 @@ Extended Meeting Room Booking System and Map Guide System.
   - project deployment
     - maven
   - IDE
-    -NetBeans IDE 8.0.2
+    - NetBeans IDE 8.0.2
 
 * Front-end Pages
   - HTML
