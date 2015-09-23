@@ -3,8 +3,9 @@ Extended Meeting Room Booking System and Map Guide System.
 
 ###Featrues
 * Supported Function
+  - Space booking management
   - IOT devices control
-  - 
+  - IPCam monitoring
 
 ###Project Details
 * Project Management
