@@ -39,6 +39,11 @@
         <script src="assets/wulian/js/devices.js"></script>
 
         <link rel="stylesheet" href="assets/wulian/css/devices.css">
+
+        <!-- nhr data -->
+        <script src="assets/nhr/js/nhrdata.js"></script>
+        <script src="assets/nhr/js/websocket.js"></script>
+        <link rel="stylesheet" href="assets/nhr/css/nhr.css">
         <style>
 
             .floorplan-title{

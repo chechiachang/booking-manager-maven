@@ -20,7 +20,7 @@ function getNhrData() {
     //cause screen flash, which is bad
     //$('div#floor1').empty();
 
-    $('.nhr').remove();
+    //$('.nhr').remove();
 
     $.get("NhrDataJsonServlet", {cmd: "getdata"}, function (jsonResponse) {
         var datas = $.parseJSON(jsonResponse);
@@ -79,11 +79,11 @@ function getNhrData() {
                     '" class= "nhr ' + iconClass +
                     '" data="' + data + '">' +
                     ' <div><i class="fa fa-fw ' + icon + '"></i></div>';
-            html += '</br>' + data;
+            html += '</br><ul><li>' + data + '</li></ul>';
             html += '</div>';
             //append to div
             var position = v.position.split(",");
-            $(html).addClass('ico-mode').addClass('nhr').css({position: "relative", left: position[0] + 'px', top: position[1] + 'px'}).appendTo('div#floor1');
+            $(html).addClass('nhr').css({position: "absolute", left: position[0] + 'px', top: position[1] + 'px'}).appendTo('div#floor1');
 
         });
     });

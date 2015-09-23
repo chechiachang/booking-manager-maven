@@ -10,8 +10,8 @@ and open the template in the editor.
 
 .nhr{
     padding:3px;
-    color:orange;
-    background: rgba(0,0,0,0.7);
+    color:black;
+    background: rgba(10,10,80,0.8);
     border:orange solid 2px;
     border-radius: 20px;
     float:left;
@@ -20,33 +20,21 @@ and open the template in the editor.
 
 .nhr.on{
     color:greenyellow;
-    border:greenyellow solid 2px;
-    background: rgba(0,0,0,0.7);
-    border-radius: 20px;
 }
 .nhr.off{
     color:crimson;
-    border:crimson solid 2px;
-    background: rgba(0,0,0,0.7);
-    border-radius: 20px;
 }
 .nhr.up{
     color:greenyellow;
-    border:greenyellow solid 2px;
 }
 .nhr.hold{
     color:greenyellow;
-    border:greenyellow solid 2px;
 }
 .nhr.down{
     color:greenyellow;
-    border:greenyellow solid 2px;
 }
 .nhr.sensor{
     color:aqua;
-    border:aqua solid 2px;
-    background: rgba(0,0,0,0.7);
-    border-radius: 20px;
 }
 .nhr>div{
     float:left;
