@@ -30,14 +30,13 @@
         <!-- full calendar-->
         <script src='assets/fullcalendar/js/moment.js'></script>
         <script src='assets/fullcalendar/js/fullcalendar.min.js'></script>
-        <script src='assets/fullcalendar/js/zh-tw.js'></script>
+        <script src='assets/fullcalendat/js/zh-tw.js'></script>
         <!-- nhr data -->
         <script src="assets/nhr/js/nhrdata.js"></script>
-        <script src="assets/nhr/js/websocket.js"></script>
         <link rel="stylesheet" href="assets/nhr/css/nhr.css">
         <!-- Custom -->
         <link rel="stylesheet" href="css/index.css">
-
+        <link rel="stylesheet" href="css/devices.css">
     </head>
     <body>
         <jsp:include page="navbar.jsp"></jsp:include>
@@ -46,28 +45,12 @@
             <div class="col-lg-12">
                 <h1>Nhr Devices</h1>
             </div>
-            <div class="col-lg-2">
-                <div id="send">
-                    <a href="javascript:doSend('query');">query</a>
-                    <a href="javascript:doSend('sirenon');">sirenon</a>
-                </div>
-                <div id="output"></div>    
-            </div>
-            <div class="col-lg-7">
+            <div class="col-lg-10">
                 <div id="floor1">
 
                 </div>
+
             </div><!--col-lg-10-->
-            <div class="col-lg-1">
-                <div class="row">
-                    <h3>Wulian Devices</h3>
-                    <div id="devices_remain" class="col-lg-12">
-                    </div>
-                    <h3>NHR Devices</h3>
-                    <div id="nhr-devices-remain" class="col-lg-12">
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-2">
 
             </div><!--col-lg-2-->

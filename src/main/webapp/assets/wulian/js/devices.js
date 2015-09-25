@@ -302,22 +302,22 @@ function refresh_devices() {
             //var html = '<a href="#" onclick="show_ctrl(' + v.epType + ',' + v.devID + ');">'
             var html = '<div id="' + v.devID + '" eptype="' + v.epType + '" dev="' + v.devID + '" epdata="' + v.devDataText + '" class="ctl ' + color_class + '"><i class="' + icon + '"></i>';
             if (data.length > 0) {
-                html += '<ul><li>' + data + '</li></ul><span></span>';
+                html += '<ul><li>' + data + '</li></ul>';
             }
-            html += '</div></a>';
+            html += '<span></span></div></a>';
 
 
             //append htm to div location
             location = v.location.split(",");
             if (location[1]) {
                 //$("p#test").html(v.location);
-                $(html).addClass('ico-mode').addClass('draggable').css({position: "absolute", top: location[1] + 'px', left: location[0] + 'px'}).appendTo('div#floor1').click(function () {
+                $(html).addClass('ico-mode').addClass('wulian').addClass('draggable').css({position: "absolute", top: location[1] + 'px', left: location[0] + 'px'}).appendTo('div#floor1').click(function () {
                     console.log("");
                     show_ctrl(v.epType, v.devID);
                     console.log("");
                 });
             } else {
-                $(html).addClass('ico-mode').addClass('draggable').css({position: "relative"}).appendTo('div#devices_remain').click(function () {
+                $(html).addClass('ico-mode').addClass('wulian').addClass('draggable').css({position: "relative"}).appendTo('div#devices_remain').click(function () {
                     console.log("");
                     show_ctrl(v.epType, v.devID);
                     console.log("");
@@ -340,7 +340,7 @@ function show_ctrl(eptype, devID) {
         case "03":
             console.log("03");
             cont = '<div>裝置ID：' + devID + '</div>';
-            btn1 = '<div><br /><button type="button" class="tn btn-default" onclick="send_ctrl(\'' + devID + '\', \'' + eptype + '\', \'0\');">撤防</button>';
+            btn1 = '<div><br /><button type="button" class="btn btn-default" onclick="send_ctrl(\'' + devID + '\', \'' + eptype + '\', \'0\');">撤防</button>';
             btn2 = ' &nbsp; <button type="button" class="btn btn-default" onclick="send_ctrl(\'' + devID + '\', \'' + eptype + '\',\'1\');">佈防</button></div>';
             cont = cont + btn1 + btn2;
             var dev_name = eptype == "02" ? "門窗感應裝置" : "紅外感應裝置";

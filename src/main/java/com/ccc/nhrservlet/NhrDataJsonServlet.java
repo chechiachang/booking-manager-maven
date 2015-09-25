@@ -75,7 +75,6 @@ public class NhrDataJsonServlet extends HttpServlet {
                             nhrData.setData(rs.getString("data"));
                             nhrData.setData2(rs.getString("data2"));
                             nhrData.setPosition(rs.getString("position"));
-
                             list.add(nhrData);
                         }
                         rs.close();
@@ -83,6 +82,16 @@ public class NhrDataJsonServlet extends HttpServlet {
                         response.setContentType("application/json");
                         response.setContentType("text/html;charset=UTF-8");
                         out.write(json);
+                        break;
+                    case "position":
+                        String address = request.getParameter("address");
+                        String left = request.getParameter("left");
+                        String top = request.getParameter("top");
+                        pstmt = conn.prepareStatement("UPDATE `data` SET `position` = ? WHERE `address` = ? ");
+                        pstmt.setString(1, left + "," + top);
+                        pstmt.setString(2, address);
+                        String result = String.valueOf(pstmt.executeUpdate());
+                        out.write(result);
                         break;
                 }
 

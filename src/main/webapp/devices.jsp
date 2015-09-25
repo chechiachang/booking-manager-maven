@@ -120,10 +120,10 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-1">
-                            <p id="log"></p>
+                        <div class="col-lg-2">
+                            <div id="output"></div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <!--
                             <ul class="nav nav-pills" role="tablist">
                         <c:forEach var="floor" items="${floors}">
@@ -162,10 +162,10 @@
                     </div>
                     <div class="col-lg-1">
                         <div class="row">
-                            <h3>Wulian Devices</h3>
+                            <p>Wulian Devices</p>
                             <div id="devices_remain" class="col-lg-12">
                             </div>
-                            <h3>NHR Devices</h3>
+                            <p>NHR Devices</p>
                             <div id="nhr-devices-remain" class="col-lg-12">
                             </div>
                         </div>
@@ -313,6 +313,8 @@
                 });
                 $('a[name="floorNav-1"]').parent('li').addClass("active");
 
+                //initialize nhrdata.js 
+                setInterval(getNhrData, 1000);
             }); //$(function(){}
 
             $('form').bind('ajax:complete', function () {
@@ -392,13 +394,6 @@
                 $('li[class|="active"]').removeClass("active");
                 $('ul li:nth-child(' + (swiper.activeIndex + 1) + ')').addClass("active");
             });
-            function InitDraggable() {
-                //draggable
-                $(".draggable").draggable();
-            }
-            function InitDroppable() {
-                $('div#floor1').droppable();
-            }
 
         </script>
     </body>

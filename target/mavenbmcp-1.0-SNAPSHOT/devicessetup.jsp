@@ -41,6 +41,10 @@
         <link rel="stylesheet" href="css/index.css">
         <script src="assets/wulian/js/devicessetup.js"></script>
         <link rel="stylesheet" href="assets/wulian/css/devices.css">
+        <!-- nhr data -->
+        <script src="assets/nhr/js/nhrdata.js"></script>
+        <script src="assets/nhr/js/websocket.js"></script>
+        <link rel="stylesheet" href="assets/nhr/css/nhr.css">
         <style>
 
             .floorplan-title{
@@ -130,7 +134,6 @@
                                 Swiper:
                                 <span id="span4"></span><br/>
                                 <span id="span5"></span><br/>
-
                                 <span id="span6"></span><br/>
                                 <span id="span7"></span><br/>
                                 <span id="span8"></span><br/>
@@ -179,7 +182,15 @@
                             <div class="swiper-pagination swiper-pagination-v"></div>
                         </div>
                     </div>
-                    <div id="devices_remain" class="col-lg-1">
+                    <div class="col-lg-1">
+                        <div class="row">
+                            <p>Wulian Devices</p>
+                            <div id="devices_remain" class="col-lg-12">
+                            </div>
+                            <p>NHR Devices</p>
+                            <div id="nhr-devices-remain" class="col-lg-12">
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-2">
                         <table id="device_table" class="table table-condensed">
@@ -304,6 +315,9 @@
                     InitDraggable();
                     InitDroppable();
                 }, 500);
+                //initialize nhrdata.js once
+                getNhrData();
+
             }); //$(function(){}
 
             $('form').bind('ajax:complete', function () {
@@ -311,25 +325,6 @@
                 $('div#oneDayCalendar').fullCalendar('refetchEvents');
             });
 
-            /*
-             var mySwiper = new Swiper('.swiper-container', {
-             // Optional parameters
-             direction: 'horizontal',
-             speed: 500,
-             //control
-             mousewheelControl: true,
-             loop: true,
-             //Grab Cursor
-             grabCursor: true,
-             //Touches
-             threshold: 10,
-             // Navigation arrows                          
-             nextButton: '.swiper-button-next',
-             prevButton: '.swiper-button-prev',
-             // And if we need scrollbar
-             scrollbar: '.swiper-scrollbar'
-             });
-             */
             var swiperH = new Swiper('.swiper-container-h', {
                 pagination: '.swiper-pagination-h',
                 paginationClickable: true,
@@ -390,12 +385,12 @@
             $("#swiper-wrapper").mousemove(function (e) {
                 var parentOffset = $(this).parent().offset();
                 wrapperOffset = parentOffset;
-                $('span#span3').text("wrapperOffset:\ntop:" + wrapperOffset.top + "\nleft:" + wrapperOffset.left);
+                $('span#span3').text("wrapperOffset:\ntop:" + Math.floor(wrapperOffset.top) + "\nleft:" + Math.floor(wrapperOffset.left));
                 //or $(this).offset(); if you really just want the current element's offset
                 var relX = e.pageX - parentOffset.left;
                 var relY = e.pageY - parentOffset.top;
-                $('span#span1').text("relX:" + relX);
-                $('span#span2').text("relY:" + relY);
+                $('span#span1').text("relX:" + Math.floor(relX));
+                $('span#span2').text("relY:" + Math.floor(relY));
             });
 
             function InitDraggable() {
@@ -404,23 +399,38 @@
                     revert: "invalid",
                     stop: function (event, ui) {
                         var i = $(this);
-
                         $(this).appendTo('div#floor1');
-                        var Stoppos = $(this).position();
-                        $('span#span11').text("Left: " + (Stoppos.left));
-                        $('span#span12').text("\nTop: " + Stoppos.top);
-                        $.post('UpdateDeviceAction', {cmd: "location", left: Math.floor(Stoppos.left), top: Math.floor(Stoppos.top), devID: $(this).prop("id")}, function (result) {
-                            if (result.length > 0) {
-                                var u = i.find('span:last');
-                                u.animate({opacity: 0}, function () {  //fade out
-                                    var temp = u.text();
-                                    u.text("變更已儲存").animate({opacity: 1}, 1000).animate({opacity: 0}, 1000, function () {  //change text and fade in and fade out
-                                        u.text(temp).animate({opacity: 1});    //change text and fade in
+                        var Stoppos = i.position();
+                        $('span#span11').text("Left: " + Math.floor(Stoppos.left));
+                        $('span#span12').text("\nTop: " + Math.floor(Stoppos.top));
+
+                        if (i.hasClass('wulian')) {   //wulian position
+                            $.post('UpdateDeviceAction', {cmd: "location", left: Math.floor(Stoppos.left), top: Math.floor(Stoppos.top), devID: i.prop("id")}, function (result) {
+                                if (result.length > 0) {
+                                    var u = i.find('span:last');
+                                    u.animate({opacity: 0}, function () {  //fade out
+                                        var temp = u.text();
+                                        u.text("變更已儲存").animate({opacity: 1}, 1000).animate({opacity: 0}, 1000, function () {  //change text and fade in and fade out
+                                            u.text(temp).animate({opacity: 1});    //change text and fade in
+                                        });
                                     });
-                                });
-                            }
-                        });
-                    }
+                                }
+                            });
+
+                        } else if (i.hasClass('nhr')) {   // nhr position
+                            $.post('NhrDataJsonServlet', {cmd: "position", left: Math.floor(Stoppos.left), top: Math.floor(Stoppos.top), address: i.prop("id")}, function (result) {
+                                if (result.length > 0) {
+                                    var u = i.find('span:last');
+                                    u.animate({opacity: 0}, function () {  //fade out
+                                        var temp = u.text();
+                                        u.text("變更已儲存").animate({opacity: 1}, 1000).animate({opacity: 0}, 1000, function () {  //change text and fade in and fade out
+                                            u.text(temp).animate({opacity: 1});    //change text and fade in
+                                        });
+                                    });
+                                }//if
+                            }); //$.post
+                        }//end if
+                    }//stop
                 });
             }
             function InitDroppable() {
@@ -429,8 +439,8 @@
                         divPos = $(this).position();
                         divWidth = $(this).outerWidth();
                         divHeight = $(this).outerHeight();
-                        $('span#span1').text("Left: " + divPos.left + "\nTop: " + divPos.top);
-                        $('span#span2').text("Width: " + divWidth + "\nHeight: " + divHeight);
+                        $('span#span1').text("Left: " + Math.floor(divPos.left) + "\nTop: " + Math.floor(divPos.top));
+                        $('span#span2').text("Width: " + Math.floor(divWidth) + "\nHeight: " + Math.floor(divHeight));
                     }
                 });
             }
