@@ -35,37 +35,37 @@
             Statement stmt = null;
             PreparedStatement pstmt = null;
             ResultSet rs;
-            Class.forName(JdbcConnBmcp.getDRIVER_MANAGER());
-            conn = DriverManager.getConnection(JdbcConnBmcp.getDB_URL(), JdbcConnBmcp.getUSER(), JdbcConnBmcp.getPASS());
+            Class.forName(JdbcConnNhr.getDRIVER_MANAGER());
+            conn = DriverManager.getConnection(JdbcConnNhr.getDB_URL(), JdbcConnNhr.getUSER(), JdbcConnNhr.getPASS());
 
-            String cmd = request.getParameter("cmd");
-            String date = "2015-09-11";
-            pstmt = conn.prepareStatement("SELECT t1.`id`, t1.`roomId`, t2.`name`, `start`, `end` "
-                    + "FROM `room_events` AS t1 Left JOIN `rooms` AS t2 "
-                    + "ON t1.`roomId` = t2.`roomId` "
-                    + "WHERE `deleted` != '1' AND `start` > ? AND `start` < ? "
-                    + "ORDER BY `id`");
-            //end > `start` > date 
-            pstmt.setString(1, date);
-            String end = date.substring(0, 8) + String.valueOf(Integer.valueOf(date.substring(8, 10)) + 1);
-            pstmt.setString(2, end);
-            rs = pstmt.executeQuery();
-            List list = new ArrayList<>();
-            while (rs.next()) {
-                NtcEvent ntcevent = new NtcEvent();
-                ntcevent.setId(rs.getInt("id"));
-                ntcevent.setRoomName(rs.getString("name"));
-                ntcevent.setRoomId(Integer.valueOf(rs.getString("roomId")));
-                ntcevent.setResources(rs.getString("roomId"));
-               
+            String cmd = "getdata";
+            switch (cmd) {
+                case "getdata":
+                    stmt = conn.createStatement();
+                    String strSql = "SELECT `type`, `address`, `short_mac`, `cluster_id`, `data`, `data2`, `position` From `data`";
+                    rs = stmt.executeQuery(strSql);
 
-                list.add(ntcevent);
+                    List list = new ArrayList<>();
+
+                    while (rs.next()) {
+                        NhrData nhrData = new NhrData();
+                        nhrData.setType(rs.getString("type"));
+                        nhrData.setAddress(rs.getString("address"));
+                        nhrData.setShortMac(rs.getString("short_mac"));
+                        nhrData.setClusterId(rs.getString("cluster_id"));
+                        nhrData.setData(rs.getString("data"));
+                        nhrData.setData2(rs.getString("data2"));
+                        nhrData.setPosition(rs.getString("position"));
+
+                        list.add(nhrData);
+                    }
+                    rs.close();
+                    String json = new Gson().toJson(list);
+                    response.setContentType("application/json");
+                    response.setContentType("text/html;charset=UTF-8");
+                    out.write(json);
+                    break;
             }
-            rs.close();
-            String json = new Gson().toJson(list);
-            response.setContentType("application/json");
-            response.setContentType("text/html;charset=UTF-8");
-            out.write(json);
 
 
         %>

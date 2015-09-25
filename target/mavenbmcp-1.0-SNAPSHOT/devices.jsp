@@ -160,8 +160,17 @@
                             <div class="swiper-pagination swiper-pagination-v"></div>
                         </div>
                     </div>
-                    <div id="devices_remain" class="col-lg-1">
+                    <div class="col-lg-1">
+                        <div class="row">
+                            <h3>Wulian Devices</h3>
+                            <div id="devices_remain" class="col-lg-12">
+                            </div>
+                            <h3>NHR Devices</h3>
+                            <div id="nhr-devices-remain" class="col-lg-12">
+                            </div>
+                        </div>
                     </div>
+
                     <div class="col-lg-2">
                         <table id="device_table" class="table table-condensed">
                             <tbody>

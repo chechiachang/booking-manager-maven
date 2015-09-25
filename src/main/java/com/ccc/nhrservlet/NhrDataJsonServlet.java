@@ -6,9 +6,7 @@
 package com.ccc.nhrservlet;
 
 import com.ccc.mavenbmcp.entity.JdbcConnNhr;
-import com.ccc.util.XmlMapping;
 import com.google.gson.Gson;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -17,9 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -65,17 +61,19 @@ public class NhrDataJsonServlet extends HttpServlet {
                 switch (cmd) {
                     case "getdata":
                         stmt = conn.createStatement();
-                        String strSql = "SELECT `mac_cluster_id`, `short_mac`, `cluster_id`, `data`, `position` From `data`";
+                        String strSql = "SELECT `type`, `address`, `short_mac`, `cluster_id`, `data`, `data2`, `position` From `data`";
                         rs = stmt.executeQuery(strSql);
 
                         List list = new ArrayList<>();
 
                         while (rs.next()) {
                             NhrData nhrData = new NhrData();
-                            nhrData.setMacClusterId(rs.getString("mac_cluster_id"));
+                            nhrData.setType(rs.getString("type"));
+                            nhrData.setAddress(rs.getString("address"));
                             nhrData.setShortMac(rs.getString("short_mac"));
                             nhrData.setClusterId(rs.getString("cluster_id"));
                             nhrData.setData(rs.getString("data"));
+                            nhrData.setData2(rs.getString("data2"));
                             nhrData.setPosition(rs.getString("position"));
 
                             list.add(nhrData);

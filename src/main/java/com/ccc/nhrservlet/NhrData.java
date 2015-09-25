@@ -10,21 +10,31 @@ package com.ccc.nhrservlet;
  * @author davidchang
  */
 public class NhrData {
-    private String macClusterId;
+
+    private String type;
+    private String address;
     private String shortMac;
     private String clusterId;
     private String data;
+    private String data2;
     private String position;
 
-    public String getMacClusterId() {
-        return macClusterId;
+    public String getType() {
+        return type;
     }
 
-    public void setMacClusterId(String macClusterId) {
-        this.macClusterId = macClusterId;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getShortMac() {
         return shortMac;
     }
@@ -49,6 +59,14 @@ public class NhrData {
         this.data = data;
     }
 
+    public String getData2() {
+        return data2;
+    }
+
+    public void setData2(String data2) {
+        this.data2 = data2;
+    }
+
     public String getPosition() {
         return position;
     }
@@ -56,6 +74,5 @@ public class NhrData {
     public void setPosition(String position) {
         this.position = position;
     }
-    
-    
+
 }
