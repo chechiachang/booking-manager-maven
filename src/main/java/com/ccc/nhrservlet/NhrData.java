@@ -17,6 +17,8 @@ public class NhrData {
     private String clusterId;
     private String data;
     private String data2;
+    private String voltage;
+    private String battery;
     private String position;
 
     public String getType() {
@@ -65,6 +67,22 @@ public class NhrData {
 
     public void setData2(String data2) {
         this.data2 = data2;
+    }
+
+    public String getVoltage() {
+        return voltage;
+    }
+
+    public void setVoltage(String voltage) {
+        this.voltage = voltage;
+    }
+
+    public String getBattery() {
+        return battery;
+    }
+
+    public void setBattery(String battery) {
+        this.battery = battery;
     }
 
     public String getPosition() {

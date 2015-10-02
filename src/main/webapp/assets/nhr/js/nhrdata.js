@@ -19,6 +19,9 @@ var nhr_devices_type = {
 
 function getNhrData() {
 
+    if(nhrPause){
+        return false;
+    }
     //cause screen flash, which is bad
     //$('div#floor1').empty();
 
@@ -91,13 +94,21 @@ function getNhrData() {
             if (v.address.length > 0) {
                 $('div#' + v.address).remove();
             }
-            var html = '<div id="' + v.address +
-                    '" shortmac="' + v.shortMac +
-                    '" clusterid= "' + v.clusterId +
-                    '" class= "nhr ' + iconClass +
-                    '" data="' + data + '">' +
-                    '<i class="fa fa-fw ' + icon + '"></i>';
-            html += '</br><ul><li>' + data + '</li></ul><span></span></div>';
+            var html = '<div id="' + v.address + '"' +
+                    ' shortmac="' + v.shortMac + '"' +
+                    ' clusterid= "' + v.clusterId + '"' +
+                    ' class= "nhr ' + iconClass + '"' +
+                    ' data="' + data + '"' +
+                    ' voltage="' + v.voltage + '"' +
+                    ' battery="' + v.battery + '"'
+                    ;
+
+            html += '>';
+            html += '<i class="fa fa-fw ' + icon + '"></i>';
+            html += '</br>';
+            html += '<div class="datatext">' + data + '</div>';
+            html += '<span></span>';
+            html += '</div>';
             //append to div
             if (v.position.length < 1) {
                 $(html).addClass('nhr').addClass('draggable').css({position: "relative"}).appendTo('div#nhr-devices-remain').click(function () {

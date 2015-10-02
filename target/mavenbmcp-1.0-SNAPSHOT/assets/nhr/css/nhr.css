@@ -63,6 +63,9 @@ and open the template in the editor.
 .nhr.small ul{
     display:none;
 }
+div.nhr div.datatext{
+    font-size:0.8em;
+}
 
 .title a{
     font-size: 20px;
@@ -70,8 +73,8 @@ and open the template in the editor.
     color:white;
 }
 #device_table{
-    margin-top:50px;
-    font-size: 20px;
+    //margin-top:50px;
+    font-size: 16px;
 
 }
 li a{

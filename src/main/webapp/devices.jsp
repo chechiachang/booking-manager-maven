@@ -18,8 +18,12 @@
         <link href="assets/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
         <script src="assets/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <!--
         <link href="assets/bootstrap-toggle-master/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css"/>
         <script src="assets/bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
+        -->
+        <script src="assets/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+        <link rel="stylesheet" href="assets/bootstrap-switch/css/bootstrap-switch.min.css">
         <!-- Font-awesome -->
         <link href="assets/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <!-- JQuery UI -->
@@ -110,7 +114,7 @@
 
         </style>
     </head>
-    <body style="background-image: url('images/background/shallowsea.jpg');">    
+    <body>    
 
         <jsp:include page="navbar.jsp"></jsp:include>
 
@@ -121,7 +125,12 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2">
-                            <div id="output"></div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    顯示模式：<input type="checkbox" id="showVoltage">
+                                </div>
+                                <div id="output" class="col-lg-12"></div>
+                            </div>
                         </div>
                         <div class="col-lg-7">
                             <!--
@@ -295,8 +304,10 @@
             <jsp:include page="modal.jsp"></jsp:include>
         </section>
         <script>
-
+            //wulian setup load once argument
             var once = false;
+            //Nhr interval run pause argument
+            var nhrPause = false;
             $(function () {
 
                 if (!once) {
@@ -315,12 +326,32 @@
 
                 //initialize nhrdata.js 
                 setInterval(getNhrData, 1000);
+
+                //init show voltage
+                initVoltageSwitch();
+                $('input#showVoltage').on('switchChange.bootstrapSwitch', function (event, state) {
+                    console.log('showVoltage: ' + state);
+                    if (state) {  //show voltage
+                        nhrPause = true;
+                        $('div.nhr').each(function (index, obj) {
+                            if ($(this).attr('voltage') > 0) {
+                                $(this).children('div').text($(this).attr('voltage') + " V");
+                            }
+                            //obj.children('div').text(obj.attr('voltage') + "V");
+                        });
+                    } else {  //show devices data
+                        nhrPause = false;
+
+                    }
+                });
             }); //$(function(){}
 
             $('form').bind('ajax:complete', function () {
                 // tasks to do 
                 $('div#oneDayCalendar').fullCalendar('refetchEvents');
             });
+
+
             /*
              var mySwiper = new Swiper('.swiper-container', {
              // Optional parameters
@@ -395,6 +426,15 @@
                 $('ul li:nth-child(' + (swiper.activeIndex + 1) + ')').addClass("active");
             });
 
+            function initVoltageSwitch() {
+                $('input#showVoltage').bootstrapSwitch({
+                    size: 'normal',
+                    onText: '電量',
+                    offText: '數值',
+                    onColor: 'primary',
+                    state: false
+                });
+            }
         </script>
     </body>
 </html>

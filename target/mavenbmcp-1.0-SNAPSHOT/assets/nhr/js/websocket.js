@@ -1,5 +1,6 @@
 
     var wsUri = "ws://localhost:10020/";
+    //var wsUri = "ws://192.168.16.4:10020/";
     var output;
 
     function init() {
@@ -10,16 +11,16 @@
     function testWebSocket() {
         websocket = new WebSocket(wsUri);
         websocket.onopen = function (evt) {
-            onOpen(evt)
+            onOpen(evt);
         };
         websocket.onclose = function (evt) {
-            onClose(evt)
+            onClose(evt);
         };
         websocket.onmessage = function (evt) {
-            onMessage(evt)
+            onMessage(evt);
         };
         websocket.onerror = function (evt) {
-            onError(evt)
+            onError(evt);
         };
     }
 
