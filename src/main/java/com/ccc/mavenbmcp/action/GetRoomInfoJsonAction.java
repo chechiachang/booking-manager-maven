@@ -43,6 +43,8 @@ public class GetRoomInfoJsonAction extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String roomId = request.getParameter("roomId");
+        String cmd = request.getParameter("cmd");
+        
         try (PrintWriter out = response.getWriter()) {
             Connection conn = null;
             PreparedStatement ps = null;

@@ -15,6 +15,7 @@
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/DeleteUserAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/GetAllUserAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/smartfloorplan/action/GetAllRoomAction.java
+/home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/servlet/GetRoomInfoServlet.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/bulletin/entity/DeviceData.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/servlet/EventJsonServlet.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/EditUserAction.java

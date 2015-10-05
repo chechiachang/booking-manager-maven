@@ -335,7 +335,7 @@
                         nhrPause = true;
                         $('div.nhr').each(function (index, obj) {
                             if ($(this).attr('voltage') > 0) {
-                                $(this).children('div').text($(this).attr('voltage') + " V");
+                                $(this).children('div').text($(this).attr('voltage') + "V");
                             }
                             //obj.children('div').text(obj.attr('voltage') + "V");
                         });

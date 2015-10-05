@@ -16,6 +16,7 @@ public class Room {
     private String name;
     private int class_id;
     private String text;
+    private String info;
     private String uri;
     private String color;
     private String fontSize;
@@ -81,6 +82,15 @@ public class Room {
         this.text = text;
     }
 
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    
     public String getUri() {
         return uri;
     }

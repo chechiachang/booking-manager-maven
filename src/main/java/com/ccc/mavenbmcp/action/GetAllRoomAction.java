@@ -43,6 +43,7 @@ public class GetAllRoomAction extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             request.setCharacterEncoding("UTF-8");
@@ -59,7 +60,7 @@ public class GetAllRoomAction extends HttpServlet {
                 
                 stmt = conn.createStatement();
 
-                String strSql = "SELECT `id`, `roomId`, `name`, `class_id`, `text`, `uri`,`color`, `fontSize`, `top`, `left`, `height`, `width` FROM `rooms`";
+                String strSql = "SELECT `id`, `roomId`, `name`, `class_id`, `text`, `info`, `uri`,`color`, `fontSize`, `top`, `left`, `height`, `width` FROM `rooms`";
                 rs = stmt.executeQuery(strSql);
                 List<Room> rooms = new ArrayList<>();
                 while (rs.next()) {
@@ -70,6 +71,7 @@ public class GetAllRoomAction extends HttpServlet {
                     room.setName(rs.getString("name"));
                     room.setClass_id(rs.getInt("class_id"));
                     room.setText(rs.getString("text"));
+                    room.setInfo(rs.getString("info"));
                     room.setUri(rs.getString("uri"));
                     room.setColor(rs.getString("color"));
                     room.setFontSize(rs.getString("fontSize"));
