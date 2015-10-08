@@ -9,6 +9,7 @@ var nhr_devices_type = {
     "motion_sensor": {"name": "motion_sensor", "on": "fa fa-fw fa-bell", "off": "fa fa-fw fa-bell-slash"},
     "door_seal": {"name": "door_seal", "on": "fa fa-fw fa-lock", "off": "fa fa-fw fa-unlock"},
     "bullhorn": {"name": "bullhorn", "on": "fa fa-fw fa-bullhorn"},
+    "co2_sensor": {"name": "co2_sensor", "on": "fa fa-fw fa-cloud"},
     "unknown": {"name": "unknown", "on": "fa fa-fw fa-question"}
 };
 /*
@@ -19,7 +20,7 @@ var nhr_devices_type = {
 
 function getNhrData() {
 
-    if(nhrPause){
+    if (nhrPause) {
         return false;
     }
     //cause screen flash, which is bad
@@ -74,6 +75,12 @@ function getNhrData() {
                 case "42":  //S05-SM soil moisture sensor
                 case "45":  //S05-TH air-temp humidity sensor
                 case "52":  //S05-LM leaf wetness sensor
+                    break;
+                case "63":  //SG-02-CO2-H1CN CO2 sensor
+                    data = v.data + "ppm<br/>";
+                    icon = nhr_devices_type.co2_sensor.on;
+                    iconClass = "sensor";
+                    break;
                 case "80":  //power meter
                 case "a1":  //Single relay
                 case "b1":  //Single PMW

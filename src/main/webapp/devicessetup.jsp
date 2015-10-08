@@ -291,7 +291,10 @@
             <jsp:include page="modal.jsp"></jsp:include>
         </section>
         <script>
-
+            //wulian setup load once argument
+            var once = false;
+            //Nhr interval run pause argument
+            var nhrPause = false;
             $(function () {
                 refresh_devices();
                 var once = true;
