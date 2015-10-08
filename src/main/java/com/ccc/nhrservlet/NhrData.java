@@ -11,6 +11,8 @@ package com.ccc.nhrservlet;
  */
 public class NhrData {
 
+    private int id;
+    private String name;
     private String type;
     private String address;
     private String shortMac;
@@ -20,6 +22,22 @@ public class NhrData {
     private String voltage;
     private String battery;
     private String position;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getType() {
         return type;

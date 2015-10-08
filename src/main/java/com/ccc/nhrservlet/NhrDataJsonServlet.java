@@ -61,13 +61,15 @@ public class NhrDataJsonServlet extends HttpServlet {
                 switch (cmd) {
                     case "getdata":
                         stmt = conn.createStatement();
-                        String strSql = "SELECT `type`, `address`, `short_mac`, `cluster_id`, `data`, `data2`, `voltage`, `battery`, `position` From `data`";
+                        String strSql = "SELECT `id`, `name`, `type`, `address`, `short_mac`, `cluster_id`, `data`, `data2`, `voltage`, `battery`, `position` From `data`";
                         rs = stmt.executeQuery(strSql);
 
                         List list = new ArrayList<>();
 
                         while (rs.next()) {
                             NhrData nhrData = new NhrData();
+                            nhrData.setId(rs.getInt("id"));
+                            nhrData.setName(rs.getString("name"));
                             nhrData.setType(rs.getString("type"));
                             nhrData.setAddress(rs.getString("address"));
                             nhrData.setShortMac(rs.getString("short_mac"));

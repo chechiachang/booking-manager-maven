@@ -45,6 +45,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="devices.jsp">Wulian</a></li>
                                 <li><a href="nhrdevices.jsp">NHR</a></li>
+                                <li><a href="deviceslist.jsp">List</a></li>
                             </ul>
                         </li>
                         <li><a href="mail.jsp">郵件系統<span class="sr-only">(current)</span></a></li>
