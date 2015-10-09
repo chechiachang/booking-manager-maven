@@ -20,14 +20,15 @@ Extended Meeting Room Booking System and Map Guide System.
   - HTML
   - JSP
   - Javascript
-    - jQuery
-    - jQuery-ui
+    - JQuery
+    - AngularJS
+    - JQuery-ui
     - Bootstrap-3.3.5-dist
     - Swiper-3.0.8
-    - font-awesome-4.3.0
-    - fullcalendar
-    - jAlert-master
-    - owl-carousel
+    - Font-awesome-4.3.0
+    - Fullcalendar
+    - JAlert-master
+    - Owl-carousel
   
 * Back-end service
   - Java
