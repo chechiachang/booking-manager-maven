@@ -10,10 +10,10 @@ package com.ccc.mavenbmcp.entity;
  * @author davidchang
  */
 public class JdbcConnBmcp {
-    static final String DB_URL = "jdbc:mysql://localhost:3306/bmcp?useUnicode=yes&characterEncoding=UTF-8";
-    static final String DRIVER_MANAGER = "com.mysql.jdbc.Driver";
-    static final String USER = "amazedarcherfish";
-    static final String PASS = "c19bc3d70a7398794623212c497dd9bf";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/bmcp?useUnicode=yes&characterEncoding=UTF-8";
+    public static final String DRIVER_MANAGER = "com.mysql.jdbc.Driver";
+    public static final String USER = "amazedarcherfish";
+    public static final String PASS = "c19bc3d70a7398794623212c497dd9bf";
 
     public JdbcConnBmcp() {
     }
