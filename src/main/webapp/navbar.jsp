@@ -44,11 +44,12 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">智能控制<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="devices.jsp">Wulian</a></li>
-                                <li><a href="nhrdevices.jsp">NHR</a></li>
                                 <li><a href="deviceslist.jsp">List</a></li>
                             </ul>
                         </li>
+                        <!--
                         <li><a href="mail.jsp">郵件系統<span class="sr-only">(current)</span></a></li>
+                        -->
                         <li><a href="signage.jsp">空間導覽</a><span class="sr-only">(current)</span></li>
                     </ul>
 

@@ -26,10 +26,12 @@
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/smartfloorplan/entity/JdbcConn.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/mail/WelcomeEmail.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/AddUserAction.java
+/home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/servlet/ContactServlet.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/LogoutServlet.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/nhrservlet/NhrData.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/smartfloorplan/action/GetAllFloorAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/ntcbmcp/servlet/NtcEventJsonServlet.java
+/home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/entity/Contact.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/NewRoomDivAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/action/GetRoomFootpathAction.java
 /home/davidchang/NetBeansProjects/mavenbmcp/src/main/java/com/ccc/mavenbmcp/servlet/DbConnection.java

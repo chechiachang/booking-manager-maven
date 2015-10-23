@@ -45,10 +45,12 @@ com/ccc/bulletin/entity/DeviceData.class
 com/ccc/mavenbmcp/action/GetRoomFootpathAction.class
 com/ccc/mavenbmcp/action/CheckRoomEventTimeAction.class
 com/ccc/smartfloorplan/entity/JdbcConn.class
+com/ccc/mavenbmcp/entity/Contact.class
 com/ccc/mavenbmcp/entity/ObjectClass.class
 com/ccc/mavenbmcp/action/GetRoomInfoJsonAction.class
 com/ccc/mavenbmcp/servlet/RoomEventJsonServlet.class
 com/ccc/mavenbmcp/mail/Message.class
+com/ccc/mavenbmcp/servlet/ContactServlet.class
 com/ccc/mavenbmcp/service/ObjectClassService.class
 com/ccc/mavenbmcp/mail/EmailUtil.class
 com/ccc/mavenbmcp/entity/JdbcConnNhr.class
