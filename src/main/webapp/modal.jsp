@@ -140,7 +140,6 @@
                                             <input type="text" id="udescription" name="description" class="form-control" placeholder="請輸入其他資訊">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6">
                                         <div class="input-group">
                                             <div class="input-group-addon">開始時間</div>
@@ -153,8 +152,11 @@
                                             <select class="form-control" id="uendTimeSelect" name="endTime" onchange="uCheckTime()"></select>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <br>
                                     <div id="toEmail" class="input-group col-lg-12">
-                                        <div class="input-group-addon">與會人</div>
+                                        <div class="input-group-addon">收件人</div>
                                         <input id="selectEmail" class="form-control">
                                     </div>
                                 </div>
@@ -186,7 +188,7 @@
                                     <button type="button" class="btn btn-default" data-dismiss="modal">關閉視窗</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="eventDelete()">刪除申請</button>
                                     <button type="submit" id="uSubmitButton" class="btn btn-primary">送出修改</button>
-                                    <button type="button" class="btn btn-info" onclick="mailto();">以Outlook發送</button>
+                                    <button type="button" class="btn btn-info" onclick="mailto();">以Outlook發送會議通知</button>
                                 </div>
                             </form>
                         </div>   
@@ -377,7 +379,7 @@
                 var strCcList = "manager@gmail.com";
                 var strBccList = "manager@gmail.com";
                 var strBody = "會議通知單" + "%0D%0A";
-                
+
                 strBody += "會議名稱：" + $('input#utitle').val() + "%0D%0A";
                 strBody += "會議時間："
                         + $('input#ustartDatepicker').val() + " " + $('select#ustartTimeSelect').val()
