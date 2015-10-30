@@ -32,6 +32,9 @@
         <link rel="stylesheet" href="css/index.css">
 
         <style>
+            body{
+                overflow-y:hidden;
+            }
             .swiper-container {
                 max-width: 600px;
                 max-height: 600px;
@@ -65,88 +68,102 @@
                 position: absolute;
 
             }
+
+            @media (min-width: 768px) {
+                .modal-xl {
+                    width: 90%;
+                    max-width:1200px;
+                }
+            }
         </style>
     </head>
     <body>
         <c:import url="GetAllObjectClassesAction"></c:import>
         <c:import url="GetAllRoomAction"></c:import>
         <jsp:include page="navbar.jsp"></jsp:include>
-
             <section>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-2 col-lg-offset-1">
-                            <div id="building">
-                                <img src="images/floors-1f.png" alt="#"/>
-                                <img src="images/floors-2f.png" alt="#" hidden/>
-                                <img src="images/floors-3f.png" alt="#" hidden/>
-                                <img src="images/floors-4f.png" alt="#" hidden/>
-                                <img src="images/floors-5f.png" alt="#" hidden/>
-                                <img src="images/floors-6f.png" alt="#" hidden/>
-                                <img src="images/floors-7f.png" alt="#" hidden/>
-                                <img src="images/floors-8f.png" alt="#" hidden/>
-                            </div>
-                        </div><!-- col-lg-3 -->
-                        <!-- floorplan-->
-                        <div id="floorplan" class="col-lg-6">
-                            <!-- Slider main container -->
-                            <div class="swiper-container">
-                                <!-- Additional required wrapper -->
-                                <div id="swiper-wrapper" class="swiper-wrapper">
-                                    <!-- Slides -->
-                                <c:forEach var="objectClass" items="${objectClasses}">
-                                    <div id="swiper-slide${objectClass.id}" class="swiper-slide">
-                                        <img class="floorplan" src="${objectClass.image_uri}" alt="#" height="600" width="600"/>
-                                        <div class="floorplan-title">
-                                            <h1>${objectClass.name}</h1>
-                                        </div>                               
-                                        <!-- load div foe each slide-->
-                                        <c:forEach var="room" items="${rooms}">
-                                            <c:choose>
-                                                <c:when test="${room.class_id eq objectClass.id}">
-                                                    <a href="#">
-                                                        <div id="${room.roomId}" class="roomInFloor draggable resizable" style="top:${room.top}px; left:${room.left}px; height:${room.height}px; width:${room.width}px;background-color:${room.color};font-size:${room.fontSize}em;">
-                                                            <c:out value="${room.name}"></c:out><br/>
-                                                            <c:out value="${room.text}"></c:out>
-                                                            </div>
-                                                        </a>
-                                                </c:when>
-                                            </c:choose>
-                                        </c:forEach>
-                                    </div>
-                                </c:forEach>
-                            </div>
+                <div class="modal fade" id="details" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="container-fluid"> 
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <div id="building">
+                                                <img src="images/floors-1f.png" alt="#"/>
+                                                <img src="images/floors-2f.png" alt="#" hidden/>
+                                                <img src="images/floors-3f.png" alt="#" hidden/>
+                                                <img src="images/floors-4f.png" alt="#" hidden/>
+                                                <img src="images/floors-5f.png" alt="#" hidden/>
+                                                <img src="images/floors-6f.png" alt="#" hidden/>
+                                                <img src="images/floors-7f.png" alt="#" hidden/>
+                                                <img src="images/floors-8f.png" alt="#" hidden/>
+                                            </div>
+                                        </div><!-- col-lg-3 -->
+                                        <!-- floorplan-->
+                                        <div id="floorplan" class="col-lg-7">
+                                            <!-- Slider main container -->
+                                            <div class="swiper-container">
+                                                <!-- Additional required wrapper -->
+                                                <div id="swiper-wrapper" class="swiper-wrapper">
+                                                    <!-- Slides -->
+                                                <c:forEach var="objectClass" items="${objectClasses}">
+                                                    <div id="swiper-slide${objectClass.id}" class="swiper-slide">
+                                                        <img class="floorplan" src="${objectClass.image_uri}" alt="#" height="600" width="600"/>
+                                                        <div class="floorplan-title">
+                                                            <h1>${objectClass.name}</h1>
+                                                        </div>                               
+                                                        <!-- load div foe each slide-->
+                                                        <c:forEach var="room" items="${rooms}">
+                                                            <c:choose>
+                                                                <c:when test="${room.class_id eq objectClass.id}">
+                                                                    <a href="#">
+                                                                        <div id="${room.roomId}" class="roomInFloor draggable resizable" style="top:${room.top}px; left:${room.left}px; height:${room.height}px; width:${room.width}px;background-color:${room.color};font-size:${room.fontSize}em;">
+                                                                            <c:out value="${room.name}"></c:out><br/>
+                                                                            <c:out value="${room.text}"></c:out>
+                                                                            </div>
+                                                                        </a>
+                                                                </c:when>
+                                                            </c:choose>
+                                                        </c:forEach>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                    </div><!-- col-lg-3 -->
+                                    <div id="roomInfo" class="col-lg-3">
+                                        <form>
+                                            <div class="form-group">
+                                                <h4>會議內容</h4>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">會議名稱</div>
+                                                    <input id="title" class="form-control"/>
+                                                </div>
+                                                <br/>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">會議地點</div>
+                                                    <input id="roomId" class="form-control"/>
+                                                    <div class="input-group-addon">會議室</div>
+                                                </div>
+                                                <br/>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">主辦單位</div>
+                                                    <input id="showName" class="form-control"/>
+                                                </div>
+                                                <br/>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">會議備註</div>
+                                                    <input id="description" class="form-control"/>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div><!-- col-lg-3 -->
+                                </div><!-- row -->
+                            </div>   
                         </div>
-                    </div><!-- col-lg-3 -->
-                    <div id="roomInfo" class="col-lg-3">
-                        <form>
-                            <div class="form-group">
-                                <h4>會議內容</h4>
-                                <div class="input-group">
-                                    <div class="input-group-addon">會議名稱</div>
-                                    <input id="title" class="form-control"/>
-                                </div>
-                                <br/>
-                                <div class="input-group">
-                                    <div class="input-group-addon">會議地點</div>
-                                    <input id="roomId" class="form-control"/>
-                                    <div class="input-group-addon">會議室</div>
-                                </div>
-                                <br/>
-                                <div class="input-group">
-                                    <div class="input-group-addon">主辦單位</div>
-                                    <input id="showName" class="form-control"/>
-                                </div>
-                                <br/>
-                                <div class="input-group">
-                                    <div class="input-group-addon">會議備註</div>
-                                    <input id="description" class="form-control"/>
-                                </div>
-                            </div>
-                        </form>
-                    </div><!-- col-lg-3 -->
-                </div><!-- row -->
-            </div><!-- container-fluid -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->  
         </section>
         <section>
             <div class="container-fluid">
@@ -177,6 +194,7 @@
                     $('input#title').val("");
                     $('input#showName').val("");
                     $('input#description').val("");
+
                     //hide swiper
                     $('div#building').fadeOut("slow"); //fade out and switch to 1f
                     $('div#floorplan').fadeOut("slow");
@@ -262,6 +280,8 @@
                                 $('input#showName').val(calEvent.showName);
                                 $('input#description').val(calEvent.description);
                             }, 300);
+                        });
+                        $('div#details').modal({
                         });
                     },
                     eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) {

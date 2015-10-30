@@ -39,7 +39,13 @@
                     <ul class="nav navbar-nav">
                         <li><a href="floorplan.jsp">會議預定</a><span class="sr-only">(current)</span></li>
                         <li><a href="table.jsp">預定清單<span class="sr-only">(current)</span></a></li>
-                        <li><a href="bulletin.jsp">資訊面板<span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdoen-toggle" data-toggle="dropdown" role="button">資訊面板<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="bulletin2.jsp">戶外風格</a></li>
+                                <li><a href="bulletin.jsp">簡單風格</a></li>
+                            </ul>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">智能控制<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
