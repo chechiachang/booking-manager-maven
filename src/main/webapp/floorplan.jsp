@@ -13,8 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>平面圖</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-                
+
+
         <!--JQuery-->
         <script src="assets/jquery/jquery-1.11.2.min.js"></script>
         <!-- Latest compiled and minified CSS -->
@@ -41,7 +41,7 @@
         <link  href="assets/jAlert-master/jAlert-v2-min.css" rel="stylesheet">
         <!-- jquery form-validator-->
         <script src="assets/form-validator/jquery.form-validator.min.js"></script>
-        
+
         <!-- Custom -->
         <link rel="stylesheet" href="css/index.css">
 
@@ -104,9 +104,17 @@
                         <div class="swiper-scrollbar"></div>
                     </div>
                     <div class="col-lg-6">
-                        <div><p id="fullcalendarHead">201 會議室</p></div>
+                        <div id="roomInfoHead">
+                            <c:forEach var="room" items="${rooms}">
+                                <div id="roomInfo-${room.name}" hidden>
+                                    <input id="fullcalendarHead" value="${room.name} 會議室">
+                                    <label>${room.info}</label>
+                                </div>
+                            </c:forEach>
+                        </div>
                         <input id="thisroomid" value="201" hidden>
                         <div id="oneDayCalendar"></div>
+
                     </div>
                 </div>
             </div>
@@ -127,6 +135,7 @@
                 });
 
                 InitialFullCalendar(201);
+                $('div#roomInfo-' + 201).fadeIn();
 
             }); //$(function(){}
 
@@ -491,9 +500,17 @@
 
             function ChangeRoom(roomId) {
                 $('input#thisroomid').val(roomId);
-                $('p#fullcalendarHead').text(roomId + " 會議室");
+
+                $('div#roomInfoHead div').fadeOut(function () {
+                    setTimeout(function () {
+                        $('div#roomInfo-' + roomId).fadeIn();
+                    }, 500);
+                });
+
                 $('div#oneDayCalendar').fullCalendar('destroy');
                 InitialFullCalendar(roomId);
+
+
                 /*
                  $('div#oneDayCalendar').fullCalendar('removeEvents');
                  $('div#ondDayCalendat').fullCalendar('removeEventSource', '/BookingManager0410/RoomEventJsonServlet?cmd=room&roomid=101'); //remove eventSource from stored hidden input

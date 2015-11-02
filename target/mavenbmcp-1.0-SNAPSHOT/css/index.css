@@ -77,8 +77,12 @@ body {
     top:10px;
     left:10px;
 }
-p#fullcalendarHead{
+input#fullcalendarHead{
     font-size: 2em;
+    background:none;
+    color: black;
+    border: none;
+    width: 7em;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
@@ -119,6 +123,10 @@ div.tool{
 div#oneDayCalendar{
     z-index: 1600;
 }
+div#roomInfoHead{
+    min-height: 50px;
+}
+
 div.fc-center h2{
     font-size: 2em;
 }
