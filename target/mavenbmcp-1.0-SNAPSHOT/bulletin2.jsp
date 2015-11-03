@@ -46,18 +46,18 @@
             }
             input{
                 background:none;
+                text-align: center;
+                alignment-adjust: middle;
                 border:none;
                 width:100%;
             }
             //time
-            input#year{
-                padding-top:10px;
+            p#fullYear{
+                //padding-top:10px;
                 font-size:4em;
-                text-align: center;
-                alignment-adjust: middle;
             }
             .date{
-                font-size:4em;
+                font-size:5em;
                 text-align: center;
                 alignment-adjust: middle;
             }
@@ -71,15 +71,18 @@
                 alignment-adjust: middle;
             }
             //meausre
+            .measure{
+                color:yellow;
+            }
             p#title-temp{
                 padding-top:20px;
-                font-size:2em;
+                font-size:3em;
                 text-align: center;
                 alignment-adjust: middle;
             }
             input#temp{
                 width:70%;
-                font-size:4em;
+                font-size:5em;
             }
             p#title-humid{
                 padding-top:10px;
@@ -103,14 +106,14 @@
             }
             //image
 
-            img.img-main{
-                position:reletive;
-                top:20px;
-            }
             //carousel
-            div#carousel{
-                border-radius: 2em;
-                background-image: url('images/bulletin/NEWS-shadow.png');
+            .message-box{
+                font-size:2em;
+            }
+            .img-container{
+                min-height: 100px;
+                text-align: center;
+                alignment-adjust: middle;
             }
         </style>
         <script>
@@ -133,24 +136,20 @@
                     <div class="col-lg-6 col-lg-offset-3 main-frame">
                         <div class="row">
                             <div class="col-lg-5">
-                                <input id="fullYear">
-                                <input class="date" id="date">
+                                <p id="fullYear" style="font-size:1.5em;padding-top:1em;"></p>
+                                <input class="date" id="date" readonly>
                             </div>
                             <div class="col-lg-1">
                                 <p id="weekDay"></p>
                             </div>
                             <div class="col-lg-6">
-                                <div class="col-lg-12">
-                                    <p id="title-temp">室內溫度</p>
-                                </div>
-                                <div class="col-lg-12 input-group">
-                                    <input class="measure" id="temp" value="${bulletin.temp}"><label for="temp">℃</label>
-                            </div>
+                                <p id="title-temp" style="font-size:1.5em;padding-top:1em;">室內溫度</p>
+                                <input class="measure" id="temp" value="${bulletin.temp}" style="color:yellow;" readonly><label for="temp">℃</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <input class="time" id="time">
+                            <input class="time" id="time" readonly>
                         </div>
                     </div>
                     <div class="row">
@@ -159,29 +158,39 @@
                                 <p id="title-CO2">空氣品質</p>
                             </div>
                             <div class="col-lg-12 input-group">
-                                <input class="measure" id="CO2" value="${bulletin.CO2}">
+                                <input class="measure" id="CO2" value="${bulletin.CO2}" style="color:yellow;" readonly>
                                 <label for="CO2">ppm</label>
                             </div>
                         </div>
-                        <div class="col-lg-2">
-                            <img id="img-cloud" class="img-main" src="images/bulletin/cloud-3.gif" alt="" style="height:50px;">
+                        <div class="col-lg-2 img-container">
+                            <div>
+                                <img class="img-small" src="images/bulletin/small-cloud-left.gif" alt="" style="height:10px;float:left;">
+                                <img class="img-small" src="images/bulletin/small-cloud-left.gif" alt="" style="height:15px;float:left;padding-left:10px;">
+                                <img class="img-small" src="images/bulletin/small-cloud-left.gif" alt="" style="height:10px;float:right;">
+                            </div>
+                            <img id="img-cloud" class="img-main" src="" alt="" style="height:50px;">
                         </div>
                         <div class="col-lg-4">
                             <div class="col-lg-12">
                                 <p id="title-humid">相對濕度</p>
                             </div>                            
                             <div class="input-group col-lg-12">
-                                <input class="measure" id="humid" value="${bulletin.humid}">
+                                <input class="measure" id="humid" value="${bulletin.humid}" style="color:yellow;" readonly>
                                 <label for="humid">%</label>
                             </div>
                         </div>
-                        <div class="col-lg-2">
-                            <img id="img-humid" class="img-main" src="images/bulletin/water-3.gif" alt="" style="height:50px;">
+                        <div class="col-lg-2 img-container">
+                            <div>
+                                <img class="img-small" src="images/bulletin/small-water.gif" alt="" style="height:10px;float:left;">
+                                <img class="img-small" src="images/bulletin/small-water.gif" alt="" style="height:15px;float:left;padding-left:10px;">
+                                <img class="img-small" src="images/bulletin/small-water.gif" alt="" style="height:10px;float:right;">
+                            </div>
+                            <img id="img-humid" class="img-main" src="" alt="" style="height:50px;">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div id="carousel" class="owl-carousel">
+                            <div id="carousel" class="owl-carousel" style="background-color:rgba(225,225,225,0.5);border-radius:2em;margin-bottom:1em;font-size:2em;">
                                 <div class="message-box">
                                     <p>系統連線中</p>
                                     <p>裝置正常</p>

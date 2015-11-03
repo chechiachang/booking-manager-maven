@@ -281,8 +281,12 @@
                                 $('input#description').val(calEvent.description);
                             }, 300);
                         });
-                        $('div#details').modal({
-                        });
+
+                        $('div#details').modal({});
+                        setTimeout(function () {
+                            $('div#details').modal('hide');
+                        }, 15000);
+                        
                     },
                     eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) {
                         revertFunc();

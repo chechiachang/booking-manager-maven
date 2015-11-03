@@ -13,7 +13,6 @@ $(function () {
     //StartChineseTime();
     $('input.bulletin-input').attr("readonly", true);
     setTimeout(IsComfort(), 1000);
-
     //
 });
 
@@ -22,7 +21,7 @@ function showDate() {
     var m = date.getMonth() + 1;
     var d = date.getDate();
     $('p#weekDay').text(weekDay[date.getDay()]);
-    return ((m < 10) ? "0" + m : m) + " / "
+    return ((m < 10) ? "0" + m : m) + "/"
             + ((d < 10) ? "0" + d : d) + " "
             ;
 }
@@ -40,6 +39,7 @@ function showTime() {
 
 function timer() {
     var date = new Date();
+    $('p#fullYear').text(date.getFullYear() + "");
     $('input#date').val(showDate());
     $('input#time').val(showTime());
 
@@ -51,51 +51,33 @@ function timer() {
     }, 1000);
 }
 
-function StartChineseTime() {
-    var date = new Date();
-    //Fullyear to ROC chinese year
-    var ROCYearNumbers = (date.getFullYear() - 1911).toString().split("");
-    var ROCYearOutput = "";
-    for (var i = 0; i < ROCYearNumbers.length; i++) {
-        ROCYearOutput += NumToChinese(ROCYearNumbers[i]);
+function IsComfort() {
+    var CO2 = parseInt($('input#CO2').val());
+    //$('#pbarCO2').progressbar({"value": CO2});
+    if (CO2 > 1000) {
+        $('#img-cloud').attr("src", "images/bulletin/cloud-full.gif");
+    } else if (CO2 > 750) {
+        $('#img-cloud').attr("src", "images/bulletin/cloud-4.gif");
+    } else if (CO2 > 500) {
+        $('#img-cloud').attr("src", "images/bulletin/cloud-3.gif");
+    } else if (CO2 > 400) {
+        $('#img-cloud').attr("src", "images/bulletin/cloud-2.gif");
+    } else {
+        $('#img-cloud').attr("src", "images/bulletin/cloud-1.gif");
     }
-    $('input#fullYear').val(ROCYearOutput);
 
-    $('input#month').val(NumToChinese(date.getMonth() + 1));
-    //cal date to chinese date
-    var dateNumbers = (date.getDate().toString().split(""));
-    var dateOutput = "";
-    for (var i = 0; i < dateNumbers.length; i++) {
-        dateOutput += NumToChinese(dateNumbers[i]);
+    var humid = parseInt($('input#humid').val());//40 60 80 100
+    //$('#pbarHumid').progressbar({"value": humid});
+    //summer time 40~80
+    if (humid > 80) {
+        $('#img-humid').attr("src", "images/bulletin/water-full.gif");
+    } else if (humid > 60) {
+        $('#img-humid').attr("src", "images/bulletin/water-4.gif");
+    } else if (humid > 40) {
+        $('#img-humid').attr("src", "images/bulletin/water-3.gif");
+    } else if (humid > 30) {
+        $('#img-humid').attr("src", "images/bulletin/water-2.gif");
+    } else {
+        $('#img-humid').attr("src", "images/bulletin/water-1.gif");
     }
-    $('input#date').val(dateOutput);
-
-
-    $('input#weekDay').val(weekDay[date.getDay()]);
-    $('input#hours').val(date.getHours());
-    $('input#minutes').val(date.getMinutes());
-
-    var s = date.getSeconds();
-    $('input#seconds').val(s);
-
-    setInterval(function () {
-        s += 1;
-        if (s == 60) {
-            s = 0;
-            //fade only info block
-            $('body').fadeOut('fast', function () {
-                date = new Date();
-                $('input#hours').val(date.getHours());
-                $('input#minutes').val(date.getMinutes());
-                $('body').fadeIn('fast');
-            });
-            //window.location.href = "room.jsp";
-        }
-        $('input#seconds').val(s);
-    }, 1000);
-}
-
-function NumToChinese(num) {
-    var words = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"];
-    return words[num];
 }
