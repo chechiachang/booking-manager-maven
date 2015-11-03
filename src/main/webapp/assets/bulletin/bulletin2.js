@@ -37,6 +37,20 @@ function showTime() {
             + ((s < 10) ? "0" + s : s);
 }
 
+function changeBgByHour() {
+    var date = new Date();
+    var h = date.getHours();
+    if (h > 18) {
+        $('body').css("background-image", "url('images/bulletin/night-6pm-5am.jpg')");
+    } else if (h > 16) {
+        $('body').css("background-image", "url('images/bulletin/after-4pm-6pm.jpg')");
+    } else if (h > 5) {
+        $('body').css("background-image", "url('images/bulletin/sun-for-5am-4pm.jpg')");
+    } else {
+        $('body').css("background-image", "url('images/bulletin/night-6pm-5am.jpg')");
+    }
+}
+
 function timer() {
     var date = new Date();
     $('p#fullYear').text(date.getFullYear() + "");
@@ -46,6 +60,7 @@ function timer() {
     setInterval(function () {
         $('input#date').val(showDate());
     }, 86400000);
+    setInterval(changeBgByHour(), 3600000);
     setInterval(function () {
         $('input#time').val(showTime());
     }, 1000);
