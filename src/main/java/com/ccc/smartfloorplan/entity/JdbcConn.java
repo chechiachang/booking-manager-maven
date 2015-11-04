@@ -12,8 +12,8 @@ package com.ccc.smartfloorplan.entity;
 public class JdbcConn {
     static final String DB_URL = "jdbc:mysql://localhost:3306/smartfloorplan?useUnicode=yes&characterEncoding=UTF-8";
     static final String DRIVER_MANAGER = "com.mysql.jdbc.Driver";
-    static final String USER = "smartfloorplan";
-    static final String PASS = "46d17cecaea923317e0635e8505091bc";
+    static final String USER = "kingsbeam";
+    static final String PASS = "kingsbeam30985441";
 
     public JdbcConn() {
     }

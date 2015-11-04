@@ -22,8 +22,8 @@ public class ObjectClassBiz {
     static final String DB_URL = "jdbc:mysql://localhost:3306/booking_manager?useUnicode=yes&characterEncoding=UTF-8";
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
-    static final String USER = "booking";
-    static final String PASS = "booking";
+    static final String USER = "kingsbeam";
+    static final String PASS = "kingsbeam30985441";
     Connection conn = null;
     Statement stmt = null;
     PreparedStatement ps = null;

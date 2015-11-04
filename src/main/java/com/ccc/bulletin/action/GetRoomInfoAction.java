@@ -42,8 +42,8 @@ public class GetRoomInfoAction extends HttpServlet {
      */
     static final String DB_URL = "jdbc:mysql://localhost:3306/wulian";
     static final String DRIVER_MANAGER = "com.mysql.jdbc.Driver";
-    static final String USER = "wulian";
-    static final String PASS = "wulian";
+    static final String USER = "kingsbeam";
+    static final String PASS = "kingsbeam30985441";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
