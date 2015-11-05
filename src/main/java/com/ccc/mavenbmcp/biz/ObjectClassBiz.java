@@ -19,7 +19,7 @@ import java.sql.Statement;
  */
 public class ObjectClassBiz {
 
-    static final String DB_URL = "jdbc:mysql://localhost:3306/booking_manager?useUnicode=yes&characterEncoding=UTF-8";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/bmcp?useUnicode=yes&characterEncoding=UTF-8";
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
     static final String USER = "kingsbeam";

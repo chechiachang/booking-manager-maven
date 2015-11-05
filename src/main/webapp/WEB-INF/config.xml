@@ -6,7 +6,7 @@
 <entry key="FAVOURITE_FRUIT">Mango</entry>
 <entry key="THE_COW_SAYS">The cow says %s</entry>
 
-<entry key="DB_URL">jdbc:mysql://localhost:3306/bluevilla?characterEncoding=UTF-8</entry>
+<entry key="DB_URL">jdbc:mysql://localhost:3306/bmcp?characterEncoding=UTF-8</entry>
 <entry key="DRIVER_MANAGER">com.mysql.jdbc.Driver</entry>
 <entry key="USER">kingsbeam</entry>
 <entry key="PASS">kingsbeam30985441</entry>

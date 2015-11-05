@@ -245,13 +245,13 @@ function refresh_devices() {
             location = v.location.split(",");
             if (location[1]) {
                 //$("p#test").html(v.location);
-                $(html).addClass('ico-mode').addClass('draggable').css({position: "absolute", top: location[1] + 'px', left: location[0] + 'px'}).appendTo('div#floor1').click(function () {
+                $(html).addClass('ico-mode').addClass('wulian').addClass('draggable').css({position: "absolute", top: location[1] + 'px', left: location[0] + 'px'}).appendTo('div#floor1').click(function () {
                     console.log();
                     showDevEdit(v.devID);
                     console.log();
                 });
             } else {
-                $(html).addClass('ico-mode').addClass('draggable').css({position: "relative"}).appendTo('div#devices_remain').click(function () {
+                $(html).addClass('ico-mode').addClass('wulian').css({position: "relative"}).appendTo('div#devices_remain').click(function () {
                     showDevEdit(v.devID);
                 });
             }
